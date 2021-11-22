@@ -16,3 +16,10 @@
 	gpgsign = true
 [gpg]
 	program = /usr/local/bin/gpg
+[alias]
+    	st = status
+    	ci = commit
+    	co = checkout
+	br = branch --format='%(HEAD) %(color:yellow)%(refname:short)%(color:reset) - %(contents:subject) %(color:green)(%(committerdate:relative)) [%(authorname)]' --sort=-committerdate
+        lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
+

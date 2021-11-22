@@ -1,0 +1,18 @@
+[url "git@gitlab.luojilab.com:"]
+	insteadOf = https://gitlab.luojilab.com/
+[user]
+	email = saltbo@foxmail.com
+	name = saltbo 
+	signingkey = 6712AEC7C30D3B8DCED2A9EBA6D9859C3FE0DCBE
+[core]
+	excludesfile = /Users/saltbo/.gitignore_global
+[difftool "sourcetree"]
+	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
+	path = 
+[mergetool "sourcetree"]
+	cmd = /Applications/Sourcetree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
+	trustExitCode = true
+[commit]
+	gpgsign = true
+[gpg]
+	program = /usr/local/bin/gpg

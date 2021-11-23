@@ -99,5 +99,6 @@ source $ZSH/oh-my-zsh.sh
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
+export SSH_AUTH_SOCK=$(gpgconf --list-dirs agent-ssh-socket)
 export PATH="/usr/local/opt/go@1.16/bin:$PATH"
 export GPG_TTY=$(tty)

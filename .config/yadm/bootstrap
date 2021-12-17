@@ -6,14 +6,48 @@ is_command() {
     command -v "$1" > /dev/null 2>&1
 }
 
-if [ ${system_type} = "Darwin" ]; then
-    if ! is_command zsh; then
-        echo "Installing zsh..."
-        brew install zsh
+echo "${system_type}"
+
+installcmd(){
+    if ! is_command $1; then
+        echo "Installing $1..."
+        brew install "$1"
         if [ $? -eq 0 ]; then
             echo "All packages are installed."
         else
-            echo "Install zsh error."
+            echo "Install $1 error."
         fi
     fi
+}
+
+installapp(){
+    if [ ! -d "/usr/local/Caskroom/$1" ]; then
+        echo "Installing $1..."
+        brew install --cask $1
+        if [ $? -eq 0 ]; then
+            echo "All packages are installed."
+        else
+            echo "Install $1 error."
+        fi
+    fi
+}
+
+
+if [ ${system_type} = "Darwin" ]; then
+    # DEV
+    installcmd zsh
+    installcmd gpg
+    installcmd lrzsz
+    installcmd kind
+    installcmd k9s
+    installcmd go
+    installapp bob
+
+    # IDE
+    installapp goland
+    installapp clion
+
+    # APP
+    installapp google-chrome
 fi
+

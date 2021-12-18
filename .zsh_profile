@@ -18,3 +18,14 @@ export NVM_DIR="$HOME/.nvm"
 alias k=kubectl
 compdef __start_kubectl k
 source <(kubectl completion zsh)
+
+
+# zplug
+export ZPLUG_HOME=$HOMEBREW_PREFIX/opt/zplug
+source $ZPLUG_HOME/init.zsh
+if ! zplug check; then
+   zplug install
+fi
+
+zplug "zsh-users/zsh-syntax-highlighting", defer:2
+zplug load

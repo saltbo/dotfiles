@@ -78,16 +78,6 @@ source $ZSH/oh-my-zsh.sh
 
 source .zsh_profile
 
-# zplug
-export ZPLUG_HOME=/usr/local/opt/zplug
-source $ZPLUG_HOME/init.zsh
-if ! zplug check; then
-    zplug install
-fi
-
-zplug "zsh-users/zsh-syntax-highlighting", defer:2
-zplug load
-
 # export MANPATH="/usr/local/man:$MANPATH"
 
 # You may need to manually set your language environment

@@ -70,13 +70,24 @@ DISABLE_AUTO_UPDATE="true"
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git z)
+plugins=(git dotenv z history transfer)
 
 source $ZSH/oh-my-zsh.sh
 
 # User configuration
 
 source .zsh_profile
+
+# zplug
+export ZPLUG_HOME=/usr/local/opt/zplug
+source $ZPLUG_HOME/init.zsh
+if ! zplug check; then
+    zplug install
+fi
+
+zplug "zsh-users/zsh-syntax-highlighting", defer:2
+zplug load
+
 # export MANPATH="/usr/local/man:$MANPATH"
 
 # You may need to manually set your language environment

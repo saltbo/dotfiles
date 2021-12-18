@@ -1,19 +1,28 @@
 #!/bin/sh
 
 system_type=$(uname -s)
+echo "${system_type}"
 
 is_command() {
     command -v "$1" > /dev/null 2>&1
 }
 
-echo "${system_type}"
+UNAME_MACHINE="$(/usr/bin/uname -m)"
+if [[ "${UNAME_MACHINE}" == "arm64" ]]
+then
+    # On ARM macOS, this script installs to /opt/homebrew only
+    HOMEBREW_PREFIX="/opt/homebrew"
+else
+    # On Intel macOS, this script installs to /usr/local only
+    HOMEBREW_PREFIX="/usr/local"
+fi
 
 installcmd(){
-    if ! is_command $1; then
+    if [ ! -d "$HOMEBREW_PREFIX/Cellar/$1" ]; then
         echo "Installing $1..."
         brew install "$1"
         if [ $? -eq 0 ]; then
-            echo "All packages are installed."
+            echo "$1 are installed."
         else
             echo "Install $1 error."
         fi
@@ -21,11 +30,11 @@ installcmd(){
 }
 
 installapp(){
-    if [ ! -d "/usr/local/Caskroom/$1" ]; then
+    if [ ! -d "$HOMEBREW_PREFIX/Caskroom/$1" ]; then
         echo "Installing $1..."
         brew install --cask $1
         if [ $? -eq 0 ]; then
-            echo "All packages are installed."
+            echo "$1 are installed."
         else
             echo "Install $1 error."
         fi
@@ -35,20 +44,23 @@ installapp(){
 
 if [ ${system_type} = "Darwin" ]; then
     # DEV
-    installcmd zsh
     installcmd gpg
     installcmd lrzsz
     installcmd kind
     installcmd k9s
     installcmd go
-    installapp bob
 
     # IDE
     installapp iterm2
     installapp goland
     installapp clion
+    installapp vscode
 
     # APP
     installapp google-chrome
+    installapp sourcetree
+    installapp enpass
+    installapp utools
+    installapp bob
 fi
 

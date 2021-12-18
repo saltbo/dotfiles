@@ -19,7 +19,7 @@ fi
 
 installcmd(){
     if [ ! -d "$HOMEBREW_PREFIX/Cellar/$1" ]; then
-        echo "Installing $1..."
+        echo "brew install $1"
         brew install "$1"
         if [ $? -eq 0 ]; then
             echo "$1 are installed."
@@ -31,7 +31,7 @@ installcmd(){
 
 installapp(){
     if [ ! -d "$HOMEBREW_PREFIX/Caskroom/$1" ]; then
-        echo "Installing $1..."
+        echo "brew install --cask $1"
         brew install --cask $1
         if [ $? -eq 0 ]; then
             echo "$1 are installed."
@@ -43,24 +43,16 @@ installapp(){
 
 
 if [ ${system_type} = "Darwin" ]; then
-    # DEV
-    installcmd gpg
-    installcmd lrzsz
-    installcmd kind
-    installcmd k9s
-    installcmd go
+    cmds=(gnupg lrzsz lazygit go docker docker-compose kind kubernetes-cli kubectx k9s) 
+    for cmd in ${cmds[@]}
+    do
+        installcmd $cmd
+    done
 
-    # IDE
-    installapp iterm2
-    installapp goland
-    installapp clion
-    installapp vscode
-
-    # APP
-    installapp google-chrome
-    installapp sourcetree
-    installapp enpass
-    installapp utools
-    installapp bob
+    apps=(iterm2 goland clion visual-studio-code google-chrome bob utools enpass sourcetree wechat notion neteasemusic sequel-pro)
+    for app in ${apps[@]}
+    do
+        installapp $app
+    done
 fi
 

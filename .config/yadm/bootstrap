@@ -49,7 +49,7 @@ if [ ${system_type} = "Darwin" ]; then
         installcmd $cmd
     done
 
-    apps=(iterm2 goland clion visual-studio-code google-chrome bob utools enpass sourcetree wechat notion neteasemusic sequel-pro)
+    apps=(iterm2 goland clion visual-studio-code google-chrome clashx bob utools enpass sourcetree wechat notion neteasemusic sequel-pro)
     for app in ${apps[@]}
     do
         installapp $app

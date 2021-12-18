@@ -43,7 +43,7 @@ installapp(){
 
 
 if [ ${system_type} = "Darwin" ]; then
-    cmds=(gnupg lrzsz lazygit go docker docker-compose kind kubernetes-cli kubectx k9s) 
+    cmds=(gnupg lrzsz lazygit go nvm docker docker-compose kind kubernetes-cli kubectx k9s) 
     for cmd in ${cmds[@]}
     do
         installcmd $cmd

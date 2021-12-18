@@ -1,9 +1,3 @@
-[url "git@gitlab.luojilab.com:"]
-	insteadOf = https://gitlab.luojilab.com/
-[user]
-	email = saltbo@foxmail.com
-	name = saltbo 
-	signingkey = 6712AEC7C30D3B8DCED2A9EBA6D9859C3FE0DCBE
 [core]
 	excludesfile = /Users/saltbo/.gitignore_global
 [difftool "sourcetree"]
@@ -23,3 +17,5 @@
 	br = branch --format='%(HEAD) %(color:yellow)%(refname:short)%(color:reset) - %(contents:subject) %(color:green)(%(committerdate:relative)) [%(authorname)]' --sort=-committerdate
         lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
 
+[include]
+    path = .gitconfig.local

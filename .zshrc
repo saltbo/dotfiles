@@ -76,7 +76,7 @@ source $ZSH/oh-my-zsh.sh
 
 # User configuration
 
-source .zsh_profile
+source "/Users/saltbo/.zsh_profile"
 
 # export MANPATH="/usr/local/man:$MANPATH"
 

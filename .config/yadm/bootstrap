@@ -43,13 +43,13 @@ installapp(){
 
 
 if [ ${system_type} = "Darwin" ]; then
-    cmds=(gnupg lrzsz lazygit zplug go nvm docker docker-compose kind kubernetes-cli kubectx k9s) 
+    cmds=(gnupg lrzsz lazygit zplug zsh-autosuggestions go nvm docker-compose kind kubernetes-cli kubectx k9s) 
     for cmd in ${cmds[@]}
     do
         installcmd $cmd
     done
 
-    apps=(iterm2 goland clion visual-studio-code google-chrome clashx bob utools enpass sourcetree wechat notion neteasemusic sequel-pro)
+    apps=(iterm2 docker goland clion visual-studio-code google-chrome clashx bob utools enpass sourcetree wechat notion neteasemusic sequel-pro)
     for app in ${apps[@]}
     do
         installapp $app

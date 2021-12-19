@@ -70,7 +70,13 @@ DISABLE_AUTO_UPDATE="true"
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git dotenv z history transfer)
+plugins=(
+    dotenv 
+    git
+    history 
+    transfer 
+    z 
+)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -101,6 +107,3 @@ source "/Users/saltbo/.zsh_profile"
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
-export SSH_AUTH_SOCK=$(gpgconf --list-dirs agent-ssh-socket)
-export PATH="/usr/local/opt/go@1.16/bin:$PATH"
-export GPG_TTY=$(tty)

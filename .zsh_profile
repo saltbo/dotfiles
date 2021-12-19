@@ -1,5 +1,4 @@
 UNAME_MACHINE="$(/usr/bin/uname -m)"
-
 if [[ "${UNAME_MACHINE}" == "arm64" ]]
 then
   # On ARM macOS, this script installs to /opt/homebrew only
@@ -9,16 +8,10 @@ else
   HOMEBREW_PREFIX="/usr/local"
 fi
 
-export NVM_DIR="$HOME/.nvm"
-[ -s "${HOMEBREW_PREFIX}/opt/nvm/nvm.sh" ] && \. "${HOMEBREW_PREFIX}/opt/nvm/nvm.sh"  # This loads nvm
-[ -s "${HOMEBREW_PREFIX}/opt/nvm/etc/bash_completion.d/nvm" ] && \. "${HOMEBREW_PREFIX}/opt/nvm/etc/bash_completion.d/nvm"  # This loads nvm bash_completion
-
-
-# kubectl
-alias k=kubectl
-compdef __start_kubectl k
-source <(kubectl completion zsh)
-
+# zsh completions for brew
+source ${HOMEBREW_PREFIX}/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+fpath=(${HOMEBREW_PREFIX}/share/zsh/site-functions $fpath)
+compinit
 
 # zplug
 export ZPLUG_HOME=$HOMEBREW_PREFIX/opt/zplug
@@ -33,3 +26,22 @@ if ! zplug check --verbose; then
     fi
 fi
 zplug load
+
+# nvm
+export NVM_DIR="$HOME/.nvm"
+[ -s "${HOMEBREW_PREFIX}/opt/nvm/nvm.sh" ] && \. "${HOMEBREW_PREFIX}/opt/nvm/nvm.sh"  # This loads nvm
+[ -s "${HOMEBREW_PREFIX}/opt/nvm/etc/bash_completion.d/nvm" ] && \. "${HOMEBREW_PREFIX}/opt/nvm/etc/bash_completion.d/nvm"  # This loads nvm bash_completion
+
+# kubectl
+source <(kubectl completion zsh)
+alias k=kubectl
+compdef __start_kubectl k
+
+# golang
+export GOPATH="/opt/data/go"
+export GOPRIVATE="*.chehejia.com"
+export GOPROXY="https://mirrors.saltbo.cn,https://goproxy.cn,direct"
+
+# gpg
+export SSH_AUTH_SOCK=$(gpgconf --list-dirs agent-ssh-socket)
+export GPG_TTY=$(tty)

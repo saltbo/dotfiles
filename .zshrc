@@ -107,3 +107,4 @@ source "/Users/saltbo/.zsh_profile"
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
+alias sed=gsed

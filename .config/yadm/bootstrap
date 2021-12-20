@@ -1,11 +1,22 @@
 #!/bin/sh
 
-system_type=$(uname -s)
-echo "${system_type}"
-
 is_command() {
     command -v "$1" > /dev/null 2>&1
 }
+
+system_type=$(uname -s)
+echo "OS=${system_type}"
+if [ "$system_type" = "Darwin" ]; then
+    if ! is_command brew; then
+        echo "Installing homebrew"
+        /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+    fi
+
+    if [ -f "$HOME/.Brewfile" ]; then
+        echo "Updating homebrew bundle"
+        brew bundle --global
+    fi
+fi
 
 UNAME_MACHINE="$(/usr/bin/uname -m)"
 if [[ "${UNAME_MACHINE}" == "arm64" ]]
@@ -15,9 +26,4 @@ then
 else
     # On Intel macOS, this script installs to /usr/local only
     HOMEBREW_PREFIX="/usr/local"
-fi
-
-if [ -f "$HOME/.config/Brewfile" ]; then
-    echo "Updating homebrew bundle"
-    brew bundle --file=~/.config/Brewfile
 fi

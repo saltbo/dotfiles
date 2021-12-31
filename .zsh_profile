@@ -33,6 +33,7 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "${HOMEBREW_PREFIX}/opt/nvm/etc/bash_completion.d/nvm" ] && \. "${HOMEBREW_PREFIX}/opt/nvm/etc/bash_completion.d/nvm"  # This loads nvm bash_completion
 
 # kubectl
+export KUBECONFIG="$(ls $HOME/.kube/conf.d/* | tr '\n' ':')$HOME/.kube/config"
 source <(kubectl completion zsh)
 alias k=kubectl
 compdef __start_kubectl k

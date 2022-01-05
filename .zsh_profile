@@ -1,5 +1,5 @@
 # brew
-HOMEBREW_NO_AUTO_UPDATE=1
+HOMEBREW_NO_INSTALL_UPGRADE=1
 UNAME_MACHINE="$(/usr/bin/uname -m)"
 if [[ "${UNAME_MACHINE}" == "arm64" ]]
 then

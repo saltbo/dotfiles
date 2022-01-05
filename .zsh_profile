@@ -1,3 +1,5 @@
+# brew
+HOMEBREW_NO_AUTO_UPDATE=1
 UNAME_MACHINE="$(/usr/bin/uname -m)"
 if [[ "${UNAME_MACHINE}" == "arm64" ]]
 then
@@ -33,7 +35,10 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "${HOMEBREW_PREFIX}/opt/nvm/etc/bash_completion.d/nvm" ] && \. "${HOMEBREW_PREFIX}/opt/nvm/etc/bash_completion.d/nvm"  # This loads nvm bash_completion
 
 # kubectl
-export KUBECONFIG="$(ls $HOME/.kube/conf.d | tr '\n' ':')$HOME/.kube/config"
+KCD="$HOME/.kube/conf.d"
+if [ -d "$KCD" ]; then
+    export KUBECONFIG="$(ls $KCD/*.config | tr '\n' ':')$HOME/.kube/kubeconfig"
+fi
 source <(kubectl completion zsh)
 alias k=kubectl
 compdef __start_kubectl k

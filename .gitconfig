@@ -8,6 +8,7 @@
 	trustExitCode = true
 [commit]
 	gpgsign = true
+	template = /Users/saltbo/.stCommitMsg
 [alias]
     	st = status
     	ci = commit

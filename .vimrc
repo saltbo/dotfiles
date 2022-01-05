@@ -6,3 +6,4 @@ set showmode             "左下角那一行癿状态
 set nu                   "可以在每一行癿最前面显示行号啦！   
 syntax on
 colorscheme zellner 
+

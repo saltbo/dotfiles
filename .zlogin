@@ -1,5 +1,4 @@
 # brew
-HOMEBREW_NO_INSTALL_UPGRADE=1
 UNAME_MACHINE="$(/usr/bin/uname -m)"
 if [[ "${UNAME_MACHINE}" == "arm64" ]]
 then
@@ -9,6 +8,7 @@ else
   # On Intel macOS, this script installs to /usr/local only
   HOMEBREW_PREFIX="/usr/local"
 fi
+export HOMEBREW_NO_INSTALL_UPGRADE=1
 
 # zsh completions for brew
 source ${HOMEBREW_PREFIX}/share/zsh-autosuggestions/zsh-autosuggestions.zsh

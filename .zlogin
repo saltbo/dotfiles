@@ -47,6 +47,7 @@ compdef __start_kubectl k
 export GOPATH="/opt/data/go"
 export GOPRIVATE="*.chehejia.com"
 export GOPROXY="https://mirrors.saltbo.cn,https://goproxy.cn,direct"
+export PATH=$PATH:$GOPATH/bin
 
 # gpg
 export SSH_AUTH_SOCK=$(gpgconf --list-dirs agent-ssh-socket)

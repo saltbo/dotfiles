@@ -1,0 +1,5 @@
+#!/bin/sh
+
+echo "go tools installing..."
+go install github.com/spf13/cobra/cobra@latest
+echo "go tools install done"

@@ -7,8 +7,14 @@ set nu                  "可以在每一行癿最前面显示行号啦！
 syntax on
 colorscheme zellner 
 
-filetype plugin indent on "On pressing tab, insert 2 spaces
-set expandtab             "show existing tab with 2 spaces width
-set tabstop=2
-set softtabstop=2         "when indenting with '>', use 2 spaces width
-set shiftwidth=2
+" Define tab as 4 spaces
+" Taken from http://stackoverflow.com/questions/1878974/redefine-tab-as-4-spaces
+set tabstop=4       " The width of a TAB is set to 4.
+                    " Still it is a \t. It is just that
+                    " Vim will interpret it to be having
+                    " a width of 4.
+set shiftwidth=4    " Indents will have a width of 4
+set softtabstop=4   " Sets the number of columns for a TAB
+set expandtab       " Expand TABs to spaces
+
+autocmd BufRead,BufNewFile *.htm,*.html,*.yml,*.yaml setlocal tabstop=2 shiftwidth=2 softtabstop=2

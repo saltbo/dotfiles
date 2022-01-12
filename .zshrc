@@ -107,6 +107,7 @@ source $ZSH/oh-my-zsh.sh
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 alias sed=gsed
 alias y=yadm
+alias k=kubectl
 alias kc=kubectx
 alias kns=kubens
 

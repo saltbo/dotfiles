@@ -1,0 +1,16 @@
+#!/bin/bash
+
+AUTOSCRIPTS="$HOME/.autoscripts"
+
+if [[ ! -d "$AUTOSCRIPTS" ]]; then
+    exit 1
+fi
+
+find -L "$AUTOSCRIPTS" -type f | sort | while IFS= read -r file; do
+    if [[ -x "$file" && ! "$file" =~ "##" && ! "$file" =~ "~$" ]]; then
+        if ! "$file"; then
+            echo "Error: exec '$file' failed" >&2
+            exit 1
+        fi
+    fi
+done

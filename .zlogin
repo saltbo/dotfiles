@@ -39,9 +39,6 @@ KCD="$HOME/.kube/conf.d"
 if [ -d "$KCD" ]; then
     export KUBECONFIG="$(ls $KCD/*.config | tr '\n' ':')$HOME/.kube/kubeconfig"
 fi
-source <(kubectl completion zsh)
-alias k=kubectl
-compdef __start_kubectl k
 
 # golang
 export GOPATH="/opt/data/go"

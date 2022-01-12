@@ -1,5 +1,11 @@
 #!/bin/sh
 
 echo "go tools installing..."
-go install github.com/spf13/cobra/cobra@latest
+
+for line in `cat $HOME/.Gobinfile`
+do 
+    echo "go install ${line}"
+    go install ${line}
+done
+
 echo "go tools install done"

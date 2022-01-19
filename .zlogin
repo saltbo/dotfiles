@@ -37,7 +37,7 @@ export NVM_DIR="$HOME/.nvm"
 # kubectl
 KCD="$HOME/.kube/conf.d"
 if [ -d "$KCD" ]; then
-    export KUBECONFIG="$(ls $KCD/*.config | tr '\n' ':')$HOME/.kube/kubeconfig"
+    export KUBECONFIG="$(ls $KCD/*.yaml | tr '\n' ':')$HOME/.kube/config"
 fi
 
 # golang
@@ -51,4 +51,4 @@ export SSH_AUTH_SOCK=$(gpgconf --list-dirs agent-ssh-socket)
 export GPG_TTY=$(tty)
 
 # proxy
-export all_proxy=socks5://selftz.me:23456
+#export all_proxy=socks5://selftz.me:23456

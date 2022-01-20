@@ -51,4 +51,4 @@ export SSH_AUTH_SOCK=$(gpgconf --list-dirs agent-ssh-socket)
 export GPG_TTY=$(tty)
 
 # proxy
-#export all_proxy=socks5://selftz.me:23456
+export ALL_PROXY=socks5://selftz.me:23456

@@ -8,6 +8,7 @@ else
   # On Intel macOS, this script installs to /usr/local only
   HOMEBREW_PREFIX="/usr/local"
 fi
+export HOMEBREW_NO_AUTO_UPDATE=1
 export HOMEBREW_NO_INSTALL_UPGRADE=1
 
 # zsh completions for brew
@@ -35,7 +36,7 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "${HOMEBREW_PREFIX}/opt/nvm/etc/bash_completion.d/nvm" ] && \. "${HOMEBREW_PREFIX}/opt/nvm/etc/bash_completion.d/nvm"  # This loads nvm bash_completion
 
 # kubectl
-KCD="$HOME/.kube/conf.d"
+KCD="$HOME/.kube/config.d"
 if [ -d "$KCD" ]; then
     export KUBECONFIG="$(ls $KCD/*.yaml | tr '\n' ':')$HOME/.kube/config"
 fi

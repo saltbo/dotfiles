@@ -51,5 +51,8 @@ export PATH=$PATH:$GOPATH/bin
 export SSH_AUTH_SOCK=$(gpgconf --list-dirs agent-ssh-socket)
 export GPG_TTY=$(tty)
 
+# mcfly
+eval "$(mcfly init zsh)"
+
 # proxy
 export ALL_PROXY=socks5://selftz.me:23456

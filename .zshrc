@@ -106,9 +106,11 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 alias sed=gsed
+alias python=python3
+alias pip=pip3
 alias y=yadm
 alias k=kubectl
-alias kc=kubectx
+alias ksw=kubectx
 alias kns=kubens
 
 # Generated for envman. Do not edit.

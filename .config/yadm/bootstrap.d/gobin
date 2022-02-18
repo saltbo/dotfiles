@@ -4,8 +4,8 @@ echo "go tools installing..."
 
 for line in `cat $HOME/.Gobinfile`
 do 
-    echo "go install ${line}"
-    go install ${line}
+    echo "go install -x ${line}"
+    go install -x ${line}
 done
 
 echo "go tools install done"

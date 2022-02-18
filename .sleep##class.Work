@@ -1,0 +1,3 @@
+#!/bin/bash
+
+bash -c psh-clock-in-notify

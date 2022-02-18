@@ -45,4 +45,5 @@ jobs:
           brew install yadm
           yadm clone git@github.com:saltbo/dotfiles.git
           ls -al .config/yadm/
+          file .config/yadm/bootstrap
           yadm bootstrap

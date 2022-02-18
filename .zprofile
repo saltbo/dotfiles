@@ -18,10 +18,9 @@ export SSH_AUTH_SOCK=$(gpgconf --list-dirs agent-ssh-socket)
 export GPG_TTY=$(tty)
 
 # proxy
-export ALL_PROXY=socks5://127.0.0.1:6666
-export HTTP_PROXY=socks5://127.0.0.1:6666
-export HTTPS_PROXY=socks5://127.0.0.1:6666
-
+export http_proxy=http://127.0.0.1:6666 
+export https_proxy=http://127.0.0.1:6666 
+export all_proxy=socks5://127.0.0.1:6666
 
 # alias for myself
 alias sed=gsed

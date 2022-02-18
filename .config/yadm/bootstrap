@@ -7,6 +7,12 @@ is_command() {
 system_type=$(uname -s)
 echo "OS=${system_type}"
 if [ "$system_type" = "Darwin" ]; then
+    if [ -d "$HOME/.config/iterm2"  ]; then
+        echo "Set iTerm2 profiles"
+        defaults write com.googlecode.iterm2.plist PrefsCustomFolder -string "$HOME/.config/iterm2"
+        defaults write com.googlecode.iterm2.plist LoadPrefsFromCustomFolder -bool true
+    fi
+
     if ! is_command brew; then
         echo "Installing homebrew"
         /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"

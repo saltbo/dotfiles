@@ -55,4 +55,4 @@ export GPG_TTY=$(tty)
 eval "$(mcfly init zsh)"
 
 # proxy
-export ALL_PROXY=socks5://selftz.me:23456
+export ALL_PROXY=socks5://127.0.0.1:6666

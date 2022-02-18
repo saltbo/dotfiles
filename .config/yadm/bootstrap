@@ -7,6 +7,10 @@ is_command() {
 system_type=$(uname -s)
 echo "OS=${system_type}"
 if [ "$system_type" = "Darwin" ]; then
+    if [ ! -d "$HOME/.oh-my-zsh"  ]; then
+        sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+    fi
+
     if ! is_command brew; then
         echo "Installing homebrew"
         /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"

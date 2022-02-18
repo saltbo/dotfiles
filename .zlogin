@@ -57,3 +57,5 @@ eval "$(mcfly init zsh)"
 
 # proxy
 export ALL_PROXY=socks5://127.0.0.1:6666
+export HTTP_PROXY=socks5://127.0.0.1:6666
+export HTTPS_PROXY=socks5://127.0.0.1:6666

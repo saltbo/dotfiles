@@ -44,4 +44,6 @@ jobs:
           cd
           /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
           brew install yadm
-          yadm clone --bootstrap git@github.com:saltbo/dotfiles.git
+          yadm clone git@github.com:saltbo/dotfiles.git
+          yadm checkout "/Users/runner"
+          yadm bootstrap

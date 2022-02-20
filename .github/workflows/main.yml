@@ -46,6 +46,9 @@ jobs:
           yadm clone --bootstrap git@github.com:saltbo/dotfiles.git
           pwd
           echo $HOME
+          cd
+          pwd
+          ls -al
           file .config/yadm/bootstrap
           .config/yadm/bootstrap
           yadm bootstrap

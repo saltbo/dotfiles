@@ -42,14 +42,6 @@ jobs:
             SSH_AUTH_SOCK: /tmp/ssh_agent.sock
         run: |
           cd
-          pwd
           /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
           brew install yadm
           yadm clone --bootstrap git@github.com:saltbo/dotfiles.git
-          echo $HOME
-          ls -al
-          ls -al .config
-          ls -al .config/yadm
-          file .config/yadm/bootstrap
-          /Users/runner/.config/yadm/bootstrap
-          yadm bootstrap

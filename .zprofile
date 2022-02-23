@@ -21,6 +21,7 @@ export GPG_TTY=$(tty)
 export http_proxy=http://127.0.0.1:6666 
 export https_proxy=http://127.0.0.1:6666 
 export all_proxy=socks5://127.0.0.1:6666
+export no_proxy="localhost,localtest,127.0.0.1"
 
 # alias for myself
 alias sed=gsed
@@ -30,4 +31,4 @@ alias y=yadm
 alias k=kubectl
 alias ksw=kubectx
 alias kns=kubens
-
+alias frpc="frpc -c .frpc.ini"

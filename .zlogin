@@ -11,9 +11,9 @@ fi
 export HOMEBREW_NO_AUTO_UPDATE=1
 export HOMEBREW_NO_INSTALL_UPGRADE=1
 
-# zsh completions for brew
+# zsh completions
 source ${HOMEBREW_PREFIX}/share/zsh-autosuggestions/zsh-autosuggestions.zsh
-fpath=(${HOMEBREW_PREFIX}/share/zsh/site-functions $fpath)
+fpath=(${HOMEBREW_PREFIX}/share/zsh/site-functions /opt/soft/site-functions $fpath)
 compinit
 
 # zplug

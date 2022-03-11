@@ -21,3 +21,5 @@
 
 [includeIf "gitdir:~/Developer/lxgit/"]
 	path = .gitconfig@lxgit
+[pull]
+	rebase = false

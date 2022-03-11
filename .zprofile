@@ -1,5 +1,6 @@
 eval "$(/opt/homebrew/bin/brew shellenv)"
 export PATH="$HOME/.local/bin:$PATH"
+export PATH="/opt/soft/bin:$PATH"
 
 # kubectl
 KCD="$HOME/.kube/config.d"

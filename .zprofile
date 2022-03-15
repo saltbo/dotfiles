@@ -1,4 +1,6 @@
-eval "$(/opt/homebrew/bin/brew shellenv)"
+eval "$($HOMEBREW_PREFIX/bin/brew shellenv)"
+
+# PATH
 export PATH="$HOME/.local/bin:$PATH"
 export PATH="/opt/soft/bin:$PATH"
 

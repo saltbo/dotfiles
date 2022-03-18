@@ -3,6 +3,7 @@ eval "$($HOMEBREW_PREFIX/bin/brew shellenv)"
 # PATH
 export PATH="$HOME/.local/bin:$PATH"
 export PATH="/opt/soft/bin:$PATH"
+export PATH="${PATH}:${HOME}/.krew/bin"
 
 # kubectl
 KCD="$HOME/.kube/config.d"
@@ -39,4 +40,9 @@ alias ksw=kubectx
 alias kns=kubens
 alias frpc="frpc -c .frpc.ini"
 alias nbox="docker run --network host -it --rm saltbo/netshoot"
+alias cc-goporject='cookiecutter https://github.com/saltbo/goproject'
 alias brewfileup="brew bundle dump --global -f"
+alias netstatnlp='netstat -na | grep LISTEN'
+alias web='python -m http.server'
+alias nclk="nc -lk"
+

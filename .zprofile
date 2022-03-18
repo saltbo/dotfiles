@@ -16,6 +16,9 @@ export GOPRIVATE="*.chehejia.com"
 export GOPROXY="https://goproxy.cn,https://mirrors.saltbo.cn/goproxy,direct"
 export PATH=$PATH:$GOPATH/bin
 
+# ko
+export KO_DOCKER_REPO=saltbo
+
 # gpg
 export SSH_AUTH_SOCK=$(gpgconf --list-dirs agent-ssh-socket)
 export GPG_TTY=$(tty)
@@ -35,3 +38,5 @@ alias k=kubectl
 alias ksw=kubectx
 alias kns=kubens
 alias frpc="frpc -c .frpc.ini"
+alias nbox="docker run --network host -it --rm saltbo/netshoot"
+

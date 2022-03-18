@@ -6,10 +6,11 @@ compinit
 # zplug
 export ZPLUG_HOME=$HOMEBREW_PREFIX/opt/zplug
 source $ZPLUG_HOME/init.zsh
-zplug "plugins/dotenv",   from:oh-my-zsh
-zplug "plugins/history",   from:oh-my-zsh
+zplug "plugins/dotenv",     from:oh-my-zsh
+zplug "plugins/history",    from:oh-my-zsh
+zplug "plugins/pip",        from:oh-my-zsh
 zplug "plugins/transfer",   from:oh-my-zsh
-zplug "plugins/z",   from:oh-my-zsh
+zplug "plugins/z",          from:oh-my-zsh
 zplug "zsh-users/zsh-syntax-highlighting", defer:2
 
 # Install plugins if there are plugins that have not been installed

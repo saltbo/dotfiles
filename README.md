@@ -1,5 +1,7 @@
 # dotfiles
-Private dotfiles for macos
+⚠️本仓库仅供参考，不要直接clone下来用。因为我的习惯不一定适合你。
+
+建议使用[yadm](https://github.com/TheLocehiliosan/yadm)自行维护自己的dotfiles。
 
 # 使用
 

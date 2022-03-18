@@ -39,4 +39,4 @@ alias ksw=kubectx
 alias kns=kubens
 alias frpc="frpc -c .frpc.ini"
 alias nbox="docker run --network host -it --rm saltbo/netshoot"
-
+alias brewfileup="brew bundle dump --global -f"

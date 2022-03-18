@@ -5,7 +5,7 @@ import fire
 
 def hello(image, target, discard_ns=False, local=False):
     new_image = image
-    if(discard_ns):
+    if discard_ns:
         new_image = os.path.basename(image)
 
     new_image = "{}/{}".format(target, new_image)
@@ -13,7 +13,7 @@ def hello(image, target, discard_ns=False, local=False):
     print("{} ==> {}".format(image, new_image))
     os.system("docker pull {}".format(image))
     os.system("docker tag {} {}".format(image, new_image))
-    if(not local):
+    if not local:
         os.system("docker push {}".format(new_image))
 
 

@@ -1,7 +1,13 @@
+# PATH
+export PATH="/opt/soft/bin:$PATH"
+export PATH="$HOME/.krew/bin:$PATH"
+export PATH="$HOME/.local/bin:$PATH"
+
 # zsh completions
 source ${HOMEBREW_PREFIX}/share/zsh-autosuggestions/zsh-autosuggestions.zsh
-fpath=(${HOMEBREW_PREFIX}/share/zsh/site-functions /opt/soft/site-functions $fpath)
+fpath=(${HOMEBREW_PREFIX}/share/zsh/site-functions $fpath)
 fpath=(${HOMEBREW_PREFIX}/share/zsh-completions $fpath)
+fpath=(/opt/soft/site-functions $fpath)
 autoload -Uz compinit
 compinit
 

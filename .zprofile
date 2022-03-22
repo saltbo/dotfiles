@@ -1,10 +1,5 @@
 eval "$($HOMEBREW_PREFIX/bin/brew shellenv)"
 
-# PATH
-export PATH="/opt/soft/bin:$PATH"
-export PATH="$HOME/.krew/bin:$PATH"
-export PATH="$HOME/.local/bin:$PATH"
-
 # kubectl
 KCD="$HOME/.kube/config.d"
 if [ -d "$KCD" ]; then

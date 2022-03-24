@@ -1,9 +1,0 @@
-{
-    "features": {
-        "buildkit": true
-    },
-    "exec-opts": [
-        "native.cgroupdriver=cgroupfs"
-    ],
-    "registry-mirrors": ["https://jh5b28by.mirror.aliyuncs.com"]
-}

@@ -5,9 +5,9 @@ vm:
     arch: aarch64
     forward_agent: false
     mounts:
-        - /etc/nerdctl
-        - /etc/buildkit
-        - /opt/data/colima
+        - /etc/buildkit:w
+        - /etc/containerd:w
+        - /opt/data/colima:w
         - /Users/yanbo/Develop
 runtime: containerd
 kubernetes:

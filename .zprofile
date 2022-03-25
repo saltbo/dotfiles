@@ -33,6 +33,7 @@ alias y=yadm
 alias k=kubectl
 alias ksw=kubectx
 alias kns=kubens
+alias nerdctl="lima nerdctl"
 alias docker=nerdctl
 alias docker-compose="nerdctl compose"
 alias frpc="frpc -c $HOME/.config/frp/frpc.ini"

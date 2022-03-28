@@ -1,0 +1,4 @@
+#!/bin/bash
+
+cmd=$1
+${cmd} completion zsh > /opt/soft/site-functions/_${cmd}

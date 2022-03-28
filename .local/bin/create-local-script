@@ -14,6 +14,7 @@ if [[ -n "${python}" ]]; then
     fhr="#!python3"
 fi
 
-echo $fhr > ~/.local/bin/$1
-chmod 755 ~/.local/bin/$1
-code ~/.local/bin/$1
+file="$HOME/.local/bin/$name"
+echo $fhr > "$file"
+chmod 755 "$file"
+code "$file"

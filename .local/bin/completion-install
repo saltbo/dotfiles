@@ -1,4 +1,9 @@
 #!/bin/bash
 
 cmd=$1
-${cmd} completion zsh > /opt/soft/site-functions/_${cmd}
+if [ ! "$(command -v "$cmd")" ]; then
+    echo "command \"$cmd\" not exists on system"
+    exit;
+fi
+
+${cmd} completion zsh > /opt/soft/site-functions/_"${cmd}"

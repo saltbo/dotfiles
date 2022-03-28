@@ -18,3 +18,8 @@ set softtabstop=4   " Sets the number of columns for a TAB
 set expandtab       " Expand TABs to spaces
 
 autocmd BufRead,BufNewFile *.htm,*.html,*.yml,*.yaml setlocal tabstop=2 shiftwidth=2 softtabstop=2
+
+call plug#begin()
+Plug 'vim-scripts/bash-support.vim'
+
+call plug#end()

@@ -1,0 +1,19 @@
+#!/bin/bash
+
+name=$1
+python=$2
+
+if [[ -z "${1}" ]]; then
+    echo "err: name required!"
+    exit 0
+
+fi
+
+fhr="#!/bin/bash"
+if [[ -n "${python}" ]]; then
+    fhr="#!python3"
+fi
+
+echo $fhr > ~/.local/bin/$1
+chmod 755 ~/.local/bin/$1
+code ~/.local/bin/$1

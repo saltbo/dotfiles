@@ -12,5 +12,10 @@ if [ ! -f "${BINDIR}/kubectl${version}" ]; then
 fi
 
 # switch the version
+if [ ! -f "${BINDIR}/kubectl${version}" ]; then
+    echo "File \"${BINDIR}/kubectl${version}\" not exists"
+    exit 0
+fi
+
 ln -sf "${BINDIR}/kubectl${version}" "${BINDIR}/kubectl"
-${BINDIR}/kubectl completion zsh > /opt/soft/site-functions/_kubectl
+${BINDIR}/kubectl completion zsh >/opt/soft/site-functions/_kubectl

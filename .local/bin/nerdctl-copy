@@ -11,10 +11,10 @@ def hello(image, target, discard_ns=False, local=False):
     new_image = "{}/{}".format(target, new_image)
 
     print("{} ==> {}".format(image, new_image))
-    os.system("docker pull {}".format(image))
-    os.system("docker tag {} {}".format(image, new_image))
+    os.system("nerdctl pull {} --all-platforms".format(image))
+    os.system("nerdctl tag {} {}".format(image, new_image))
     if not local:
-        os.system("docker push {}".format(new_image))
+        os.system("nerdctl push {} --all-platforms".format(new_image))
 
 
 if __name__ == '__main__':

@@ -7,4 +7,4 @@ server = "https://docker.io"
   capabilities = ["pull", "resolve"]
 
 [host."https://registry-1.docker.io"]
-  capabilities = ["pull", "resolve"]
+  capabilities = ["pull", "resolve", "push"]

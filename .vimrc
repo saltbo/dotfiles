@@ -4,8 +4,6 @@ set autoindent          "自劢缩排
 set ruler               "可显示最后一行癿状态   
 set showmode            "左下角那一行癿状态   
 set nu                  "可以在每一行癿最前面显示行号啦！   
-syntax on
-colorscheme zellner 
 
 " Define tab as 4 spaces
 " Taken from http://stackoverflow.com/questions/1878974/redefine-tab-as-4-spaces
@@ -16,6 +14,11 @@ set tabstop=4       " The width of a TAB is set to 4.
 set shiftwidth=4    " Indents will have a width of 4
 set softtabstop=4   " Sets the number of columns for a TAB
 set expandtab       " Expand TABs to spaces
+
+syntax enable
+syntax on                    " 开启文件类型侦测
+filetype plugin indent on    " 启用自动补全
+colorscheme zellner 
 
 autocmd BufRead,BufNewFile *.htm,*.html,*.yml,*.yaml setlocal tabstop=2 shiftwidth=2 softtabstop=2
 

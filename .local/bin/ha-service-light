@@ -1,0 +1,14 @@
+#!/bin/bash
+
+service=$1
+entity_id=$2
+
+export http_proxy=
+export all_proxy=
+export no_proxy=
+source ~/.env
+curl "http://192.168.10.10/api/services/light/${service}" \
+  -H "Authorization: Bearer ${HA_TOKEN}" \
+  -H "Content-Type: application/json" \
+  -H "Host: ha.local" \
+  -d '{"entity_id": "'"${entity_id}"'"}'

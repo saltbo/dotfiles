@@ -33,7 +33,7 @@ autocmd VimEnter * if len(filter(values(g:plugs), '!isdirectory(v:val.dir)'))
   \| PlugInstall --sync | source $MYVIMRC
 \| endif
 
-call plug#begin('~/.vim/bundle')
+call plug#begin()
 
 Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'

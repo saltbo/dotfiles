@@ -29,3 +29,5 @@
 	path = .gitconfig@lxgit
 [pull]
 	rebase = false
+[init]
+	defaultBranch = master

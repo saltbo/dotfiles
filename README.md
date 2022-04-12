@@ -12,19 +12,18 @@
 brew install yadm && yadm clone --bootstrap git@github.com:saltbo/dotfiles.git
 ```
 
-## 日常使用
-
-```bash
-# 更新Brewfile
-brew bundle dump --global -f
-yadm ci -am "refactor: update the .Brewfile"
-```
-
 # 待完善
 
 ## 秘钥
 - bob
 - wakatime
+- sshkey
+- frp
+- npm
+- aws
+- bark
+- home-assistant
+- kube?
 
 # 需要手动操作的
 - 搜狗输入法

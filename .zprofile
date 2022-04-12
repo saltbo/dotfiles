@@ -1,9 +1,9 @@
 eval "$($HOMEBREW_PREFIX/bin/brew shellenv)"
 
 # kubectl
-KCD="$HOME/.kube/config.d"
+KCD="$HOME/.kube/conf.d"
 if [ -d "$KCD" ]; then
-    export KUBECONFIG="$(ls $KCD/*.yaml | tr '\n' ':')$HOME/.kube/config"
+    export KUBECONFIG="$(ls $KCD/*.conf | tr '\n' ':')$HOME/.kube/config"
 fi
 
 # golang

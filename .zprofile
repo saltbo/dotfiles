@@ -1,9 +1,9 @@
 eval "$($HOMEBREW_PREFIX/bin/brew shellenv)"
 
 # kubectl
-KCD="$HOME/.kube/config.d"
+KCD="$HOME/.kube/conf.d"
 if [ -d "$KCD" ]; then
-    export KUBECONFIG="$(ls $KCD/*.yaml | tr '\n' ':')$HOME/.kube/config"
+    export KUBECONFIG="$(ls $KCD/*.conf | tr '\n' ':')$HOME/.kube/config"
 fi
 
 # golang
@@ -34,7 +34,7 @@ alias k=kubectl
 alias ksw=kubectx
 alias kns=kubens
 alias frpc="frpc -c $HOME/.config/frp/frpc.ini"
-alias nbox="docker run --network host -it --rm saltbo/netshoot"
+alias nbox="nerdctl run --network host -it --rm saltbo/netshoot"
 alias cc-goporject='cookiecutter https://github.com/saltbo/goproject'
 alias brewfileup="brew bundle dump --global -f"
 alias netstatnlp='netstat -na | grep LISTEN'

@@ -1,0 +1,4 @@
+#!/bin/bash
+
+export PATH=$PATH:~/.local/bin
+ha-service-do light.dn2grp_cloud_574208 turn_on

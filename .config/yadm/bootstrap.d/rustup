@@ -1,0 +1,9 @@
+#!/bin/sh
+
+echo "rust tools installing..."
+curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- --no-modify-path
+source $HOME/.cargo/env
+rustup completions zsh rustup > .local/share/zsh-completions/_rustup
+rustup completions zsh cargo > .local/share/zsh-completions/_cargo
+
+echo "rust tools install done"

@@ -1,0 +1,14 @@
+#!/bin/bash
+
+# https://developers.home-assistant.io/docs/api/rest/
+
+entity_id=$1
+domain=${entity_id%.*}
+service=$2
+
+source ~/.env
+export no_proxy=local
+curl "http://ha.local/api/services/${domain}/${service}" \
+  -H "Authorization: Bearer ${HA_TOKEN}" \
+  -H "Content-Type: application/json" \
+  -d '{"entity_id": "'"${entity_id}"'"}' > /dev/null 2>&1

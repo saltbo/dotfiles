@@ -15,5 +15,10 @@ export HOMEBREW_NO_INSTALL_UPGRADE=1
 export CPATH=$HOMEBREW_PREFIX/include  
 export LIBRARY_PATH=$HOMEBREW_PREFIX/lib
 
+# rust
+if [ -f "$HOME/.cargo/env" ]; then
+  source "$HOME/.cargo/env"
+fi
+
 # npm 
 export NPM_CONFIG_OFFICIAL_REGISTRY_TOKEN=""

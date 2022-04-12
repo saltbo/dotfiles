@@ -7,6 +7,7 @@ export PATH="$HOME/.local/bin:$PATH"
 source ${HOMEBREW_PREFIX}/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 fpath=(${HOMEBREW_PREFIX}/share/zsh/site-functions $fpath)
 fpath=(${HOMEBREW_PREFIX}/share/zsh-completions $fpath)
+fpath=($HOME/.local/share/zsh-completions $fpath)
 fpath=(/opt/soft/site-functions $fpath)
 autoload -Uz compinit
 compinit

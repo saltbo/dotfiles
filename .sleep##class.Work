@@ -1,3 +1,9 @@
 #!/bin/bash
 
-~/.local/bin/psh-clock-in-notify
+targetHour=18
+currentHour=$(date +%H)
+if [ "$currentHour" -ge $targetHour ]
+then
+    export PATH=$PATH:~/.local/bin
+    bark-notify "打开提醒" "下班了？记得打卡！！！"
+fi

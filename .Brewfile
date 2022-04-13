@@ -96,7 +96,6 @@ cask "intellij-idea"
 cask "iterm2"
 cask "neteasemusic"
 cask "notion"
-cask "sequel-pro"
 cask "slack"
 cask "sogouinput"
 cask "sourcetree"
@@ -105,6 +104,5 @@ cask "utools"
 cask "visual-studio-code"
 cask "wechat"
 cask "wireshark"
-mas "MenubarX", id: 1575588022
 mas "RunCat", id: 1429033973
 mas "Sequel Ace", id: 1518036000

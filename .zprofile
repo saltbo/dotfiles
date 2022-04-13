@@ -41,3 +41,6 @@ alias netstatnlp='netstat -na | grep LISTEN'
 alias web='python -m http.server'
 alias nclk="nc -lk"
 
+# bindkey
+bindkey '^P' history-substring-search-up
+bindkey '^N' history-substring-search-down

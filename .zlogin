@@ -15,9 +15,12 @@ compinit
 export ZPLUG_HOME=$HOMEBREW_PREFIX/opt/zplug
 source $ZPLUG_HOME/init.zsh
 zplug "plugins/encode64",   from:oh-my-zsh
+zplug "plugins/extract",    from:oh-my-zsh
 zplug "plugins/dotenv",     from:oh-my-zsh
 zplug "plugins/history",    from:oh-my-zsh
+zplug "plugins/nvm",        from:oh-my-zsh
 zplug "plugins/pip",        from:oh-my-zsh
+zplug "plugins/sudo",       from:oh-my-zsh
 zplug "plugins/transfer",   from:oh-my-zsh
 zplug "plugins/z",          from:oh-my-zsh
 zplug "plugins/history-substring-search",  from:oh-my-zsh
@@ -30,12 +33,8 @@ if ! zplug check --verbose; then
 fi
 zplug load
 
-# nvm
-export NVM_DIR="$HOME/.nvm"
-[ -s "${HOMEBREW_PREFIX}/opt/nvm/nvm.sh" ] && \. "${HOMEBREW_PREFIX}/opt/nvm/nvm.sh"  # This loads nvm
-[ -s "${HOMEBREW_PREFIX}/opt/nvm/etc/bash_completion.d/nvm" ] && \. "${HOMEBREW_PREFIX}/opt/nvm/etc/bash_completion.d/nvm"
-source <(npm completion)
-
 # mcfly
-eval "$(mcfly init zsh)"
+if command -v mcfly  &> /dev/null; then
+    eval "$(mcfly init zsh)"
+fi
 

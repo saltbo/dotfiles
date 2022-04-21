@@ -10,17 +10,17 @@
 	gpgsign = true
 	template = ~/.stCommitMsg
 [alias]
-   	st = status
-   	ci = commit
-   	co = checkout
-        ds = diff --staged
+	st = status
+	ci = commit
+	co = checkout
+	ds = diff --staged
 	changes = log -n1 -p --format=fuller
 	amend = commit --amend -C HEAD
 	undo = clean -f -d
 	undoci = reset HEAD~1
 	unstage = reset HEAD --
-        br = branch --format='%(HEAD) %(color:yellow)%(refname:short)%(color:reset) - %(contents:subject) %(color:green)(%(committerdate:relative)) [%(authorname)]' --sort=-committerdate
-        lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
+	br = branch --format='%(HEAD) %(color:yellow)%(refname:short)%(color:reset) - %(contents:subject) %(color:green)(%(committerdate:relative)) [%(authorname)]' --sort=-committerdate
+	lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
 
 [include]
 	path = .gitconfig@default

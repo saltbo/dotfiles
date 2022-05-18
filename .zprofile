@@ -33,6 +33,7 @@ alias y=yadm
 alias k=kubectl
 alias ksw=kubectx
 alias kns=kubens
+alias argorollouts=kubectl-argo-rollouts
 alias frpc="frpc -c $HOME/.config/frp/frpc.ini"
 alias nerdctl="lima nerdctl"
 alias nbox="nerdctl run --network host -it --rm saltbo/netshoot"

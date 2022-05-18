@@ -1,5 +1,5 @@
 [gpg]
-         program = /usr/local/bin/gpg
+         program = gpg
 [commit]
          gpgsign = true 
 [user]

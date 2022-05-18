@@ -30,7 +30,7 @@ images:
 
 arch: x86_64
 
-cups: 8
+cpus: 8
 memory: 8GiB
 
 # Mounts are disabled in this example, but can be enabled optionally.

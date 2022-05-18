@@ -1,0 +1,10 @@
+#!/bin/bash
+
+# 更新到主站
+cd ~/Develop/bogit/blog && git pull || exit
+gpg -a -o .vuepress/public/pgp_keys.asc --export saltbo
+git add . && git cm --feat "update the gpg public key"
+git push
+
+# 更新到keybase
+keybase pgp update

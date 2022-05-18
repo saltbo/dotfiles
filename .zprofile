@@ -23,7 +23,7 @@ export GPG_TTY=$(tty)
 export http_proxy=http://127.0.0.1:6666 
 export https_proxy=http://127.0.0.1:6666 
 export all_proxy=socks5://127.0.0.1:6666
-export no_proxy="localhost,localtest,127.0.0.1"
+export no_proxy="localtest.rs,localhost,localtest,localtest.me,127.0.0.1"
 
 # alias for myself
 alias sed=gsed
@@ -34,6 +34,7 @@ alias k=kubectl
 alias ksw=kubectx
 alias kns=kubens
 alias frpc="frpc -c $HOME/.config/frp/frpc.ini"
+alias nerdctl="lima nerdctl"
 alias nbox="nerdctl run --network host -it --rm saltbo/netshoot"
 alias cc-goporject='cookiecutter https://github.com/saltbo/goproject'
 alias brewfileup="brew bundle dump --global -f"

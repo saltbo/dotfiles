@@ -90,10 +90,10 @@ ssh:
 containerd:
   # Enable system-wide (aka rootful)  containerd and its dependencies (BuildKit, Stargz Snapshotter)
   # 🟢 Builtin default: false
-  system: null
+  system: true 
   # Enable user-scoped (aka rootless) containerd and its dependencies
   # 🟢 Builtin default: true
-  user: null
+  user: false 
 #  # Override containerd archive
 #  # 🟢 Builtin default: hard-coded URL with hard-coded digest (see the output of `limactl info | jq .defaultTemplate.containerd.archives`)
 #  archives:

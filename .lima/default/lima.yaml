@@ -120,18 +120,13 @@ provision:
 #     cat <<EOF > ~/.vimrc
 #     set number
 #     EOF
-- mode: user
-  script: |
-    #!/bin/bash
-    set -eux -o pipefail
-    cp -rf /Users/yanbo/.config/nerdctl ~/.config/
-    mv -f ~/.config/nerdctl/containerd/* ~/.config/containerd/
-    mv -f ~/.config/nerdctl/buildkit/* ~/.config/buildkit/*
-    EOF
 - mode: system
   script: |
     #!/bin/bash
     set -eux -o pipefail
+    cp -rf /Users/yanbo/.config/nerdctl ~/.config/
+    mv -f ~/.config/nerdctl/containerd/* /etc/containerd/
+    mv -f ~/.config/nerdctl/buildkit/* /etc/buildkit/
     service buildkitd restart
     service containerd restart
 

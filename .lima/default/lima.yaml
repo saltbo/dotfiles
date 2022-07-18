@@ -124,9 +124,7 @@ provision:
   script: |
     #!/bin/bash
     set -eux -o pipefail
-    cp -rf /Users/yanbo/.config/nerdctl ~/.config/
-    mv -f ~/.config/containerd/* /etc/containerd/
-    mv -f ~/.config/buildkit/* /etc/buildkit/
+    cp -rf /Users/*/.config/lima/* /etc/
     service buildkitd restart
     service containerd restart
 

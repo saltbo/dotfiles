@@ -31,6 +31,7 @@ alias python=python3
 alias pip=pip3
 alias y=yadm
 alias k=kubectl
+alias i=istioctl
 alias ksw=kubectx
 alias kns=kubens
 alias argorollouts=kubectl-argo-rollouts

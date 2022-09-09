@@ -23,7 +23,7 @@ export GPG_TTY=$(tty)
 export http_proxy=http://127.0.0.1:6666 
 export https_proxy=http://127.0.0.1:6666 
 export all_proxy=socks5://127.0.0.1:6666
-export no_proxy="localtest.rs,localhost,localtest,localtest.me,127.0.0.1,5.15"
+export no_proxy="localtest.rs,localhost,localtest,localtest.me,127.0.0.1"
 
 # alias for myself
 alias sed=gsed

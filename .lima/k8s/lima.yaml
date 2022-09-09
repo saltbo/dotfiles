@@ -28,6 +28,8 @@ images:
   arch: "aarch64"
 
 arch: "x86_64"
+cpus: 8
+memory: 8GiB
 
 # Mounts are disabled in this example, but can be enabled optionally.
 mounts: []

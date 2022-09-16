@@ -65,7 +65,6 @@ mounts:
   # 🟢 Builtin default: false
   # 🔵 This file: true (only for "/tmp/lima")
   writable: true
-  mounts:
 
 ssh:
   # A localhost port of the host. Forwarded to port 22 of the guest.

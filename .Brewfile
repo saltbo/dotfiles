@@ -88,6 +88,7 @@ brew "procs"
 brew "sd"
 brew "shellcheck"
 brew "siege"
+brew "skaffold"
 brew "sleepwatcher", restart_service: true
 brew "telnet"
 brew "terraform"

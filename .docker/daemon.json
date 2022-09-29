@@ -1,0 +1,16 @@
+{
+  "builder": {
+    "gc": {
+      "defaultKeepStorage": "20GB",
+      "enabled": true
+    }
+  },
+  "experimental": false,
+  "features": {
+    "buildkit": true
+  },
+  "registry-mirrors": [
+    "https://jh5b28by.mirror.aliyuncs.com",
+    "https://mirrors.saltbo.cn"
+  ]
+}

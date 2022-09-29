@@ -1780,9 +1780,9 @@
 				</dict>
 				<dict>
 					<key>action</key>
-					<string>PasswordTrigger</string>
+					<string>ScriptTrigger</string>
 					<key>parameter</key>
-					<string>yanbo — yanbo</string>
+					<string>open /Applications/Enpass.app</string>
 					<key>partial</key>
 					<true/>
 					<key>regex</key>

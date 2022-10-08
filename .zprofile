@@ -26,6 +26,7 @@ export all_proxy=socks5://127.0.0.1:6666
 export no_proxy="localtest.rs,localhost,localtest,localtest.me,127.0.0.1"
 
 # alias for myself
+alias ls='lsd'
 alias sed=gsed
 alias python=python3
 alias pip=pip3

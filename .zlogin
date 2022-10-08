@@ -26,6 +26,7 @@ zplug "plugins/z",          from:oh-my-zsh
 zplug "plugins/history-substring-search",  from:oh-my-zsh
 zplug "zsh-users/zsh-autosuggestions",     defer:2
 zplug "zsh-users/zsh-syntax-highlighting", defer:2
+zplug "NoahTheDuke/vim-just", defer:2
 
 # Install plugins if there are plugins that have not been installed
 if ! zplug check --verbose; then

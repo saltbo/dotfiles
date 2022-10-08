@@ -1,24 +1,24 @@
 # brew
 UNAME_MACHINE="$(/usr/bin/uname -m)"
-if [[ "${UNAME_MACHINE}" == "arm64" ]]
-then
-  # On ARM macOS, this script installs to /opt/homebrew only
-  HOMEBREW_PREFIX="/opt/homebrew"
+if [[ "${UNAME_MACHINE}" == "arm64" ]]; then
+    # On ARM macOS, this script installs to /opt/homebrew only
+    HOMEBREW_PREFIX="/opt/homebrew"
 else
-  # On Intel macOS, this script installs to /usr/local only
-  HOMEBREW_PREFIX="/usr/local"
+    # On Intel macOS, this script installs to /usr/local only
+    HOMEBREW_PREFIX="/usr/local"
 fi
 export HOMEBREW_NO_AUTO_UPDATE=1
 export HOMEBREW_NO_INSTALL_UPGRADE=1
+eval "$($HOMEBREW_PREFIX/bin/brew shellenv)"
 
-# clang
-export CPATH=$HOMEBREW_PREFIX/include  
-export LIBRARY_PATH=$HOMEBREW_PREFIX/lib
+# zsh completions
+fpath=(${HOMEBREW_PREFIX}/share/zsh/site-functions $fpath)
+fpath=(${HOMEBREW_PREFIX}/share/zsh-completions $fpath)
+fpath=($HOME/.local/share/zsh-completions $fpath)
+fpath=(/opt/soft/site-functions $fpath)
+autoload -Uz compinit
+compinit
 
-# rust
-if [ -f "$HOME/.cargo/env" ]; then
-  source "$HOME/.cargo/env"
-fi
-
-# npm 
-export NPM_CONFIG_OFFICIAL_REGISTRY_TOKEN=""
+export PATH="/opt/soft/bin:$PATH"
+export PATH="$HOME/.krew/bin:$PATH"
+export PATH="$HOME/.local/bin:$PATH"

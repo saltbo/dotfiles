@@ -9,7 +9,6 @@ else
 fi
 export HOMEBREW_NO_AUTO_UPDATE=1
 export HOMEBREW_NO_INSTALL_UPGRADE=1
-eval "$($HOMEBREW_PREFIX/bin/brew shellenv)"
 
 # zsh completions
 fpath=(${HOMEBREW_PREFIX}/share/zsh/site-functions $fpath)
@@ -19,6 +18,7 @@ fpath=(/opt/soft/site-functions $fpath)
 autoload -Uz compinit
 compinit
 
+# PATH
 export PATH="/opt/soft/bin:$PATH"
 export PATH="$HOME/.krew/bin:$PATH"
 export PATH="$HOME/.local/bin:$PATH"

@@ -1,3 +1,5 @@
+eval "$($HOMEBREW_PREFIX/bin/brew shellenv)"
+
 # zplug
 export ZPLUG_HOME=$HOMEBREW_PREFIX/opt/zplug
 source $ZPLUG_HOME/init.zsh
@@ -37,14 +39,11 @@ fi
 
 # tools
 # proxy
-export http_proxy=http://127.0.0.1:6666
-export https_proxy=http://127.0.0.1:6666
-export all_proxy=socks5://127.0.0.1:6666
+PROXY_ADDR="http://docker.for.mac.localhost:6666"
+export http_proxy=$PROXY_ADDR
+export https_proxy=$PROXY_ADDR
+export all_proxy=$PROXY_ADDR
 export no_proxy="localtest.rs,localhost,localtest,localtest.me,127.0.0.1"
-# mcfly
-if command -v mcfly &>/dev/null; then
-    eval "$(mcfly init zsh)"
-fi
 # kubectl
 KCD="$HOME/.kube/conf.d"
 if [ -d "$KCD" ]; then
@@ -57,6 +56,10 @@ export SSH_AUTH_SOCK=$(gpgconf --list-dirs agent-ssh-socket)
 export GPG_TTY=$(tty)
 # npm
 export NPM_CONFIG_OFFICIAL_REGISTRY_TOKEN=""
+# istio
+export HUB="docker.io/saltbo"
+export TAG=istio-testing
+export ISTIO=$HOME/develop/oss/istio
 
 # alias for myself
 alias ls='lsd'

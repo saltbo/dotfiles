@@ -3,4 +3,4 @@
 ctype=${1#"--"}; shift
 cmsg="$*"
 
-git commit -am "$ctype: $cmsg"
+git commit -asm "$ctype: $cmsg"

@@ -11,7 +11,7 @@
 	template = ~/.stCommitMsg
 [alias]
 	st = status
-	ci = commit
+	ci = commit -s
 	co = checkout
 	ds = diff --staged
 	changes = log -n1 -p --format=fuller

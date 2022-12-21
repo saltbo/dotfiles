@@ -6,6 +6,8 @@
 	<string></string>
 	<key>Coprocess MRU</key>
 	<array>
+		<string>~/.config/iterm2/scripts/bw-otp.sh</string>
+		<string>~/.config/iterm2/scripts/bw-pw.sh</string>
 		<string>~/.config/iterm2/scripts/iterm2-send-zmodem.sh</string>
 		<string>~/.iterm2/scripts/iterm2-recv-zmodem.sh</string>
 		<string>~/.iterm2/scripts/iterm2-send-zmodem.sh</string>
@@ -1800,13 +1802,25 @@
 				</dict>
 				<dict>
 					<key>action</key>
-					<string>ScriptTrigger</string>
+					<string>MuteCoprocessTrigger</string>
 					<key>parameter</key>
-					<string>open /Applications/Enpass.app</string>
+					<string>~/.config/iterm2/scripts/bw-pw.sh</string>
 					<key>partial</key>
 					<true/>
 					<key>regex</key>
 					<string>password</string>
+				</dict>
+				<dict>
+					<key>action</key>
+					<string>MuteCoprocessTrigger</string>
+					<key>disabled</key>
+					<false/>
+					<key>parameter</key>
+					<string>~/.config/iterm2/scripts/bw-otp.sh</string>
+					<key>partial</key>
+					<true/>
+					<key>regex</key>
+					<string>OTP Code</string>
 				</dict>
 			</array>
 			<key>Unlimited Scrollback</key>

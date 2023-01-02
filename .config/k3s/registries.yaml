@@ -6,7 +6,10 @@ mirrors:
       - "https://registry-1.docker.io"
   "quay.io":
     endpoint:
-      - "https://mirrors.saltbo.cn"
+      - "https://mirrors.saltbo.cn/quay"
   "gcr.io":
     endpoint:
-      - "https://mirrors.saltbo.cn"
+      - "https://mirrors.saltbo.cn/gcr"
+  "ghcr.io":
+    endpoint:
+      - "https://mirrors.saltbo.cn/ghcr"

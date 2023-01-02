@@ -138,7 +138,6 @@ cask "calibre"
 cask "clashx"
 cask "clion"
 cask "dozer"
-cask "enpass"
 cask "feishu"
 cask "font-hack-nerd-font"
 cask "goland"
@@ -155,11 +154,9 @@ cask "slack"
 cask "sogouinput"
 cask "sourcetree"
 cask "telegram"
-cask "utools"
 cask "visual-studio-code"
 cask "wechat"
 cask "wireshark"
 mas "Bob", id: 1630034110
 mas "RunCat", id: 1429033973
 mas "Sequel Ace", id: 1518036000
-mas "自动切换输入法", id: 1470350547

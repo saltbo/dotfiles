@@ -12,7 +12,7 @@ def hello(image, target, discard_ns=False, local=False):
 
     cmd = "docker"
     print("{} ==> {}".format(image, new_image))
-    os.system(cmd+" pull {}".format(image))
+    os.system(cmd+" pull --platform amd64 {}".format(image))
     os.system(cmd+" tag {} {}".format(image, new_image))
     if not local:
         os.system(cmd+" push {}".format(new_image))

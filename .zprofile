@@ -39,7 +39,7 @@ fi
 
 # tools
 # proxy
-PROXY_ADDR="http://docker.for.mac.localhost:6666"
+PROXY_ADDR="socks5://docker.for.mac.localhost:6666"
 export http_proxy=$PROXY_ADDR
 export https_proxy=$PROXY_ADDR
 export all_proxy=$PROXY_ADDR

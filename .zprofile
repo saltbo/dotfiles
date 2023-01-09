@@ -39,11 +39,11 @@ fi
 
 # tools
 # proxy
-PROXY_ADDR="socks5://docker.for.mac.localhost:6666"
+PROXY_ADDR="http://docker.for.mac.localhost:6666"
 export http_proxy=$PROXY_ADDR
 export https_proxy=$PROXY_ADDR
 export all_proxy=$PROXY_ADDR
-export no_proxy="localtest.rs,localhost,localtest,localtest.me,127.0.0.1"
+export no_proxy="chj.cloud,localtest.rs,localtest.me,localtest,localhost,127.0.0.1"
 # kubectl
 KCD="$HOME/.kube/conf.d"
 if [ -d "$KCD" ]; then

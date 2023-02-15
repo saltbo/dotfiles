@@ -3,7 +3,7 @@ server = "https://docker.io"
 [host."https://jh5b28by.mirror.aliyuncs.com"]
   capabilities = ["pull", "resolve"]
 
-[host."https://mirrors.saltbo.cn"]
+[host."https://mirrors.saltbo.fun"]
   capabilities = ["pull", "resolve"]
 
 [host."https://registry-1.docker.io"]

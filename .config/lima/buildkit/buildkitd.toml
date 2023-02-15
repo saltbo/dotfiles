@@ -7,4 +7,4 @@
   snapshotter = "overlayfs"
 
 [registry."docker.io"]
-  mirrors = ["jh5b28by.mirror.aliyuncs.com", "mirrors.saltbo.cn"]
+  mirrors = ["jh5b28by.mirror.aliyuncs.com", "mirrors.saltbo.fun"]

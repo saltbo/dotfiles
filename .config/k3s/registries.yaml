@@ -2,14 +2,14 @@ mirrors:
   "docker.io":
     endpoint:
       - "https://jh5b28by.mirror.aliyuncs.com"
-      - "https://mirrors.saltbo.cn"
+      - "https://mirrors.saltbo.fun"
       - "https://registry-1.docker.io"
   "quay.io":
     endpoint:
-      - "https://mirrors.saltbo.cn/quay"
+      - "https://mirrors.saltbo.fun/quay"
   "gcr.io":
     endpoint:
-      - "https://mirrors.saltbo.cn/gcr"
+      - "https://mirrors.saltbo.fun/gcr"
   "ghcr.io":
     endpoint:
-      - "https://mirrors.saltbo.cn/ghcr"
+      - "https://mirrors.saltbo.fun/ghcr"

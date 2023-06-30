@@ -8,7 +8,7 @@
 	trustExitCode = true
 [commit]
 	gpgsign = true
-	template = ~/.stCommitMsg
+    #template = ~/.stCommitMsg
 [alias]
 	st = status
 	ci = commit -s
@@ -27,6 +27,8 @@
 
 [includeIf "gitdir:~/Develop/lxgit/"]
 	path = .gitconfig@lxgit
+[includeIf "gitdir:~/Develop/rrgit/"]
+	path = .gitconfig@rrgit
 [pull]
 	rebase = false
 [init]

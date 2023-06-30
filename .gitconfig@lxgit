@@ -1,7 +1,7 @@
 [gpg]
         program = gpg
 [commit]
-        gpgsign = true 
+        gpgsign = false 
 [user]
         name = yanbo 
         email = yanbo@lixiang.com

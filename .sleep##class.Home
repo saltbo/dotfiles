@@ -1,4 +1,4 @@
 #!/bin/bash
 
 export PATH=$PATH:~/.local/bin
-ha-service-do light.group3_cloud_795840 turn_off
+ha-service-do light.gong_zuo_deng turn_off

@@ -10,7 +10,6 @@
     "buildkit": true
   },
   "registry-mirrors": [
-    "https://jh5b28by.mirror.aliyuncs.com",
     "https://mirrors.saltbo.fun"
   ]
 }

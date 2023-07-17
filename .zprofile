@@ -84,3 +84,6 @@ alias nclk="nc -lk"
 # bindkey
 bindkey '^P' history-substring-search-up
 bindkey '^N' history-substring-search-down
+
+# Added by OrbStack: command-line tools and integration
+source ~/.orbstack/shell/init.zsh 2>/dev/null || :

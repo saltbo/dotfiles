@@ -8,7 +8,6 @@
 	trustExitCode = true
 [commit]
 	gpgsign = true
-    #template = ~/.stCommitMsg
 [alias]
 	st = status
 	ci = commit -s
@@ -29,7 +28,9 @@
 	path = .gitconfig@lxgit
 [includeIf "gitdir:~/Develop/rrgit/"]
 	path = .gitconfig@rrgit
-[pull]
-	rebase = false
 [init]
 	defaultBranch = master
+[pull]
+	rebase = true 
+[push]
+	autoSetupRemote = true

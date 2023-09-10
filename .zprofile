@@ -36,6 +36,8 @@ export LIBRARY_PATH=$HOMEBREW_PREFIX/lib
 if [ -f "$HOME/.cargo/env" ]; then
     source "$HOME/.cargo/env"
 fi
+# ruby
+export PATH=$PATH:$(gem env gemdir)/bin
 
 # tools
 # proxy
@@ -47,7 +49,7 @@ export no_proxy="chj.cloud,localtest.rs,localtest.me,localtest,localhost,127.0.0
 # kubectl
 KCD="$HOME/.kube/conf.d"
 if [ -d "$KCD" ]; then
-    export KUBECONFIG="$(ls $KCD/*.conf | tr '\n' ':')$HOME/.kube/config"
+    export KUBECONFIG="$HOME/.kube/config:$(find $HOME/.kube/conf.d -name "*.conf" -type f | paste -s -d : -)"
 fi
 # ko
 export KO_DOCKER_REPO=saltbo

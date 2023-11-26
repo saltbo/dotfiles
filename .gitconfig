@@ -1,13 +1,25 @@
-[core]
-	excludesfile = ~/.gitignore_global
 [difftool "sourcetree"]
 	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
 	path = 
 [mergetool "sourcetree"]
 	cmd = /Applications/Sourcetree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
 	trustExitCode = true
+
+[core]
+	excludesfile = ~/.gitignore_global
+[init]
+	defaultBranch = master
+[pull]
+	rebase = true 
+[push]
+	autoSetupRemote = true
+[gpg]
+    program = gpg
 [commit]
 	gpgsign = true
+[user]
+    signingkey = 6712AEC7C30D3B8DCED2A9EBA6D9859C3FE0DCBE
+
 [alias]
 	st = status
 	ci = commit -s
@@ -23,14 +35,7 @@
 
 [include]
 	path = .gitconfig@default
-
 [includeIf "gitdir:~/Develop/lxgit/"]
 	path = .gitconfig@lxgit
 [includeIf "gitdir:~/Develop/rrgit/"]
 	path = .gitconfig@rrgit
-[init]
-	defaultBranch = master
-[pull]
-	rebase = true 
-[push]
-	autoSetupRemote = true

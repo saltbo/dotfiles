@@ -1,14 +1,7 @@
-[url "git@github.com:"]
-        insteadOf = https://github.com/
-[url "git@gitlab.chehejia.com:"]
-        insteadOf = https://gitlab.chehejia.com/
-[url "git@gitlabee.chehejia.com:"]
-        insteadOf = https://gitlabee.chehejia.com/
-[gpg]
-         program = gpg
-[commit]
-         gpgsign = true 
 [user]
-         email = saltbo@foxmail.com
-         name = saltbo
-         signingkey = 6712AEC7C30D3B8DCED2A9EBA6D9859C3FE0DCBE
+    name = saltbo
+    email = saltbo@foxmail.com
+
+[url "git@github.com:"]
+    insteadOf = https://github.com/
+

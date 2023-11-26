@@ -1,8 +1,8 @@
-[gpg]
-        program = gpg
-[commit]
-        gpgsign = false 
 [user]
         name = yanbo 
         email = yanbo@lixiang.com
-        signingkey = D8F308A83996C817D674F133FA050F878C843B65 
+
+[url "git@gitlab.chehejia.com:"]
+        insteadOf = https://gitlab.chehejia.com/
+[url "git@gitlabee.chehejia.com:"]
+        insteadOf = https://gitlabee.chehejia.com/

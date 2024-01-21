@@ -41,7 +41,7 @@ export PATH=$PATH:$(gem env gemdir)/bin
 
 # tools
 # proxy
-PROXY_ADDR="http://proxy.internal:6666"
+#PROXY_ADDR="http://proxy.internal:6666"
 export http_proxy=$PROXY_ADDR
 export https_proxy=$PROXY_ADDR
 export all_proxy=$PROXY_ADDR
@@ -64,6 +64,7 @@ export TAG=istio-testing
 export ISTIO=$HOME/develop/oss/istio
 
 # alias for myself
+source $HOME/.env
 alias ls='lsd'
 alias sed=gsed
 alias python=python3
@@ -76,6 +77,7 @@ alias ksw=kubectx
 alias kns=kubens
 alias argorollouts=kubectl-argo-rollouts
 alias frpc="frpc -c $HOME/.config/frp/frpc.ini"
+alias frpchttp="frpc http -s frps.saltbo.fun -P 32700 -n local -t $FRP_TOKEN"
 alias nbox="nerdctl run --network host -it --rm saltbo/netshoot"
 alias cc-goporject='cookiecutter https://github.com/saltbo/goproject'
 alias brewfileup="brew bundle dump --global -f"

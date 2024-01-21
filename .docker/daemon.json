@@ -6,7 +6,8 @@
     }
   },
   "experimental": false,
-  "registry-mirrors": [
-    "https://mirrors.saltbo.fun"
-  ]
+  "features": {
+    "buildkit": true
+  },
+  "registry-mirrors": []
 }

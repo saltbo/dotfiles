@@ -6,9 +6,10 @@
 	<string></string>
 	<key>Coprocess MRU</key>
 	<array>
+		<string>~/.config/iterm2/scripts/iterm2-recv-zmodem.sh</string>
+		<string>~/.config/iterm2/scripts/iterm2-send-zmodem.sh</string>
 		<string>~/.config/iterm2/scripts/bw-otp.sh</string>
 		<string>~/.config/iterm2/scripts/bw-pw.sh</string>
-		<string>~/.config/iterm2/scripts/iterm2-send-zmodem.sh</string>
 		<string>~/.iterm2/scripts/iterm2-recv-zmodem.sh</string>
 		<string>~/.iterm2/scripts/iterm2-send-zmodem.sh</string>
 	</array>

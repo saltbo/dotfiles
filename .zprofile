@@ -4,6 +4,7 @@ eval "$($HOMEBREW_PREFIX/bin/brew shellenv)"
 export ZPLUG_HOME=$HOMEBREW_PREFIX/opt/zplug
 source $ZPLUG_HOME/init.zsh
 zplug "plugins/encode64", from:oh-my-zsh
+zplug "plugins/gpg-agent", from:oh-my-zsh
 zplug "plugins/extract", from:oh-my-zsh
 zplug "plugins/dotenv", from:oh-my-zsh
 zplug "plugins/history", from:oh-my-zsh

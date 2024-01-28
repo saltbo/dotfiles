@@ -29,7 +29,7 @@ zplug load
 export GOPATH="/opt/data/go"
 export GOPRIVATE="*.chehejia.com"
 export GOPROXY="https://goproxy.cn,https://mirrors.saltbo.fun/goproxy,direct"
-export PATH=$PATH:$GOPATH/bin
+export PATH=$GOPATH/bin:$PATH
 # clang
 export CPATH=$HOMEBREW_PREFIX/include
 export LIBRARY_PATH=$HOMEBREW_PREFIX/lib

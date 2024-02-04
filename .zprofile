@@ -42,7 +42,7 @@ export PATH=$PATH:$(gem env gemdir)/bin
 
 # tools
 # proxy
-#PROXY_ADDR="http://proxy.internal:6666"
+PROXY_ADDR="http://proxy.internal:6666"
 export http_proxy=$PROXY_ADDR
 export https_proxy=$PROXY_ADDR
 export all_proxy=$PROXY_ADDR

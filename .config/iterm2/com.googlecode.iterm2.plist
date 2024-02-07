@@ -6,10 +6,10 @@
 	<string></string>
 	<key>Coprocess MRU</key>
 	<array>
-		<string>~/.config/iterm2/scripts/iterm2-recv-zmodem.sh</string>
-		<string>~/.config/iterm2/scripts/iterm2-send-zmodem.sh</string>
 		<string>~/.config/iterm2/scripts/bw-otp.sh</string>
 		<string>~/.config/iterm2/scripts/bw-pw.sh</string>
+		<string>~/.config/iterm2/scripts/iterm2-recv-zmodem.sh</string>
+		<string>~/.config/iterm2/scripts/iterm2-send-zmodem.sh</string>
 		<string>~/.iterm2/scripts/iterm2-recv-zmodem.sh</string>
 		<string>~/.iterm2/scripts/iterm2-send-zmodem.sh</string>
 	</array>
@@ -926,6 +926,18 @@
 		<dict>
 			<key>ASCII Anti Aliased</key>
 			<true/>
+			<key>AWDS Pane Directory</key>
+			<string></string>
+			<key>AWDS Pane Option</key>
+			<string>No</string>
+			<key>AWDS Tab Directory</key>
+			<string></string>
+			<key>AWDS Tab Option</key>
+			<string>No</string>
+			<key>AWDS Window Directory</key>
+			<string></string>
+			<key>AWDS Window Option</key>
+			<string>No</string>
 			<key>Ambiguous Double Width</key>
 			<false/>
 			<key>Ansi 0 Color</key>
@@ -1072,6 +1084,8 @@
 				<key>Red Component</key>
 				<integer>1</integer>
 			</dict>
+			<key>Automatically Log</key>
+			<false/>
 			<key>BM Growl</key>
 			<true/>
 			<key>Background Color</key>
@@ -1804,12 +1818,14 @@
 				<dict>
 					<key>action</key>
 					<string>MuteCoprocessTrigger</string>
+					<key>disabled</key>
+					<false/>
 					<key>parameter</key>
 					<string>~/.config/iterm2/scripts/bw-pw.sh</string>
 					<key>partial</key>
 					<true/>
 					<key>regex</key>
-					<string>password</string>
+					<string>jms.chj.cloud's password</string>
 				</dict>
 				<dict>
 					<key>action</key>
@@ -1891,6 +1907,8 @@
 	<true/>
 	<key>TabsHaveCloseButton</key>
 	<true/>
+	<key>URLHandlersByGuid</key>
+	<dict/>
 	<key>VisualIndicatorForEsc</key>
 	<false/>
 	<key>WindowNumber</key>

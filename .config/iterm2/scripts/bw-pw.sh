@@ -2,4 +2,4 @@
 
 source ~/.config/iterm2/scripts/bw.sh
 
-echo $(bw get password https://account.lixiang.com/login)
+echo $(bw get password https://jms.inner.chj.cloud)

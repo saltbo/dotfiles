@@ -8,7 +8,6 @@ zplug "plugins/gpg-agent", from:oh-my-zsh
 zplug "plugins/extract", from:oh-my-zsh
 zplug "plugins/dotenv", from:oh-my-zsh
 zplug "plugins/history", from:oh-my-zsh
-zplug "plugins/nvm", from:oh-my-zsh
 zplug "plugins/pip", from:oh-my-zsh
 zplug "plugins/sudo", from:oh-my-zsh
 zplug "plugins/transfer", from:oh-my-zsh

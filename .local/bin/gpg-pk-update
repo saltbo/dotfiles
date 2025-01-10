@@ -6,5 +6,9 @@ gpg -a -o .vuepress/public/pgp_keys.asc --export saltbo
 git add . && git cm --feat "update the gpg public key"
 git push
 
+# 更新到github
+gh gpg-key delete -y ED13862C4BCD86D8
+gh gpg-key add .vuepress/public/pgp_keys.asc
+
 # 更新到keybase
 keybase pgp update

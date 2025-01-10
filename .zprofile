@@ -6,7 +6,7 @@ source $ZPLUG_HOME/init.zsh
 zplug "plugins/encode64", from:oh-my-zsh
 zplug "plugins/gpg-agent", from:oh-my-zsh
 zplug "plugins/extract", from:oh-my-zsh
-zplug "plugins/dotenv", from:oh-my-zsh
+zplug "plugins/direnv", from:oh-my-zsh
 zplug "plugins/history", from:oh-my-zsh
 zplug "plugins/pip", from:oh-my-zsh
 zplug "plugins/sudo", from:oh-my-zsh
@@ -25,9 +25,11 @@ zplug load
 
 # langs
 # golang
+export CGO_ENABLED=0
 export GOPATH="/opt/data/go"
 export GOPRIVATE="*.chehejia.com"
-export GOPROXY="https://goproxy.cn,https://mirrors.saltbo.fun/goproxy,direct"
+export GOPROXY="https://goproxy.cn,direct"
+export GOTOOLCHAIN=local
 export PATH=$GOPATH/bin:$PATH
 # clang
 export CPATH=$HOMEBREW_PREFIX/include
@@ -45,7 +47,7 @@ PROXY_ADDR="http://proxy.internal:6666"
 export http_proxy=$PROXY_ADDR
 export https_proxy=$PROXY_ADDR
 export all_proxy=$PROXY_ADDR
-export no_proxy="chj.cloud,localtest.rs,localtest.me,localtest,localhost,127.0.0.1"
+export no_proxy="chehejia.com,chj.cloud,localtest.rs,localtest.me,localtest,localhost,127.0.0.1"
 # kubectl
 KCD="$HOME/.kube/conf.d"
 if [ -d "$KCD" ]; then

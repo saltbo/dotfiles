@@ -1,0 +1,29 @@
+#!/bin/bash
+
+cd ~/.local/bin/pyscripts || exit 1
+
+echo "Setting up Python scripts in ~/.local/bin/pyscripts"
+if [ ! -f requirements.txt ]; then
+    echo "Error: requirements.txt not found in ~/.local/bin/pyscripts"
+    exit 1
+fi
+
+# Create a virtual environment if it doesn't exist
+if [ ! -d .venv ]; then
+    echo "Creating virtual environment in ~/.local/bin/pyscripts/.venv"
+    python3 -m venv .venv
+    echo "Virtual environment created successfully."
+else
+    echo "Virtual environment already exists in ~/.local/bin/pyscripts/.venv"
+fi
+
+source .venv/bin/activate || exit 1
+echo "Installing required Python packages from requirements.txt"
+if [ ! -f requirements.txt ]; then
+    echo "Error: requirements.txt not found in ~/.local/bin/pyscripts"
+    exit 1
+fi
+
+# Install the required packages
+pip install -r requirements.txt
+sh link.sh

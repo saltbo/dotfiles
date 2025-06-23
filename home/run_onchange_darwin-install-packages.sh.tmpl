@@ -9,7 +9,7 @@ brew {{ . | quote }}
 cask {{ . | quote }}
 {{ end -}}
 {{ range .packages.darwin.mases -}}
-mas {{ .name | quote }}, {{ .id | quote }}
+mas {{ .name | quote }}, id: {{ .id }}
 {{ end -}}
 EOF
 {{ end -}}

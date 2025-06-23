@@ -43,7 +43,7 @@ if [ -d "$HOME/.local/share/chezmoi/.git" ]; then
     chezmoi update
     echo "✅  Chezmoi updated"
 else
-    chezmoi init saltbo
+    chezmoi init saltbo --branch chezmoi
     chezmoi apply
     echo "✅  Chezmoi initialized"
 fi

@@ -1,0 +1,14 @@
+mirrors:
+  "docker.io":
+    endpoint:
+      - "https://docker.tftt.cc"
+      - "https://registry-1.docker.io"
+  "quay.io":
+    endpoint:
+      - "https://docker.tftt.cc/quay.io"
+  "gcr.io":
+    endpoint:
+      - "https://docker.tftt.cc/gcr.io"
+  "ghcr.io":
+    endpoint:
+      - "https://docker.tftt.cc/ghcr.io"

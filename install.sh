@@ -35,6 +35,7 @@ if which -s "chezmoi"; then
     echo "✅  Chezmoi is already installed."
 else
     echo "⚪️  Installing Chezmoi"
+    eval "$(/opt/homebrew/bin/brew shellenv)"
     brew install chezmoi
 fi
 

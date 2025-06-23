@@ -69,7 +69,7 @@ packages:
       - mitmproxy
       - maccy
       - iina
-    mas:
+    mases:
       - name: Bob
         id: 1630034110
       - name: RunCat

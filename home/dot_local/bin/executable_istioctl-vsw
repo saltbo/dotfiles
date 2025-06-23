@@ -1,0 +1,21 @@
+#!/bin/bash
+version=$1
+CMD=istioctl
+BINDIR=/opt/soft/bin
+
+# download if not exist
+if [ ! -f "${BINDIR}/${CMD}${version}" ]; then
+    cd  /opt/soft && curl -L https://istio.io/downloadIstio | ISTIO_VERSION=${version} sh -
+    if [ -f "/opt/soft/istio-${version}/bin/${CMD}" ]; then
+        ln -s "/opt/soft/istio-${version}/bin/${CMD}" "${BINDIR}/${CMD}${version}"
+    fi
+fi
+
+# switch the version
+if [ ! -f "${BINDIR}/${CMD}${version}" ]; then
+    echo "File \"${BINDIR}/${CMD}${version}\" not exists"
+    exit 0
+fi
+
+ln -sf "${BINDIR}/${CMD}${version}" "${BINDIR}/${CMD}"
+${BINDIR}/${CMD} completion zsh >/opt/soft/site-functions/_${CMD}

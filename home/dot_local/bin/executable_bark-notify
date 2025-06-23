@@ -1,0 +1,15 @@
+#!/bin/bash
+
+# https://day.app/2021/06/barkfaq/
+
+title="$1"
+message="$2"
+
+source ~/.env
+curl -X "POST" "https://api.day.app/push" \
+   -H 'Content-Type: application/json; charset=utf-8' \
+   -d $'{
+"title": "'${title}'",
+"body": "'${message}'",
+"device_key": "'${BARK_TOKEN}'"
+}' > /dev/null 2>&1

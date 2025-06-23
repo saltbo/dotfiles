@@ -1,0 +1,21 @@
+#!/bin/bash
+version=$1
+BINDIR=/opt/soft/bin
+
+# download if not exist
+if [ ! -f "${BINDIR}/kubectl${version}" ]; then
+    full_version=$(curl -L -s https://dl.k8s.io/release/stable-"${version}".txt)
+    curl -Lf "https://dl.k8s.io/release/${full_version}/bin/darwin/arm64/kubectl" -o "${BINDIR}/kubectl${version}"
+    if [ -f "${BINDIR}/kubectl${version}" ]; then
+        chmod 755 "${BINDIR}/kubectl${version}"
+    fi
+fi
+
+# switch the version
+if [ ! -f "${BINDIR}/kubectl${version}" ]; then
+    echo "File \"${BINDIR}/kubectl${version}\" not exists"
+    exit 0
+fi
+
+ln -sf "${BINDIR}/kubectl${version}" "${BINDIR}/kubectl"
+${BINDIR}/kubectl completion zsh >/opt/soft/site-functions/_kubectl

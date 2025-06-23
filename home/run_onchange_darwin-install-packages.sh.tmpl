@@ -8,5 +8,8 @@ brew {{ . | quote }}
 {{ range .packages.darwin.casks -}}
 cask {{ . | quote }}
 {{ end -}}
+{{ range .packages.darwin.casks -}}
+mas {{ .name | quote }}, {{ .id | quote }}
+{{ end -}}
 EOF
 {{ end -}}

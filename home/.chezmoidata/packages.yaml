@@ -7,11 +7,16 @@ packages:
       - choose-rust
       - cloc
       - duf
+      - direnv
+      - dive
       - fd
       - ffmpeg
       - frpc
       - gh
+      - git
+      - git-extras
       - gnu-sed
+      - gnu-tar
       - gnupg
       - go
       - goreleaser
@@ -51,15 +56,18 @@ packages:
       - tmux
       - tree
       - vim
+      - volta
       - watch
       - wget
       - wrk
+      - yt-dlp
       - zplug
       - zsh
       - zsh-autosuggestions
       - zsh-completions
     casks:
       - iterm2
+      - keybase
       - google-chrome
       - telegram
       - goland
@@ -72,6 +80,8 @@ packages:
     mases:
       - name: Bob
         id: 1630034110
+      - name: OpenCat
+        id: 6445999201
       - name: RunCat
         id: 1435956242
       - name: Sequel Ace

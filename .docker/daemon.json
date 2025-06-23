@@ -6,8 +6,5 @@
     }
   },
   "experimental": false,
-  "features": {
-    "buildkit": true
-  },
   "registry-mirrors": []
 }

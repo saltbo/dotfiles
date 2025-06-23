@@ -8,7 +8,9 @@ zplug "plugins/gpg-agent", from:oh-my-zsh
 zplug "plugins/extract", from:oh-my-zsh
 zplug "plugins/direnv", from:oh-my-zsh
 zplug "plugins/history", from:oh-my-zsh
-zplug "plugins/pip", from:oh-my-zsh
+zplug "plugins/direnv", from:oh-my-zsh
+#zplug "plugins/nvm", from:oh-my-zsh
+#zplug "plugins/pip", from:oh-my-zsh
 zplug "plugins/sudo", from:oh-my-zsh
 zplug "plugins/transfer", from:oh-my-zsh
 zplug "plugins/z", from:oh-my-zsh
@@ -69,8 +71,8 @@ export ISTIO=$HOME/develop/oss/istio
 source $HOME/.env
 alias ls='lsd'
 alias sed=gsed
-alias python=python3
-alias pip=pip3
+#alias python=python3
+#alias pip=pip3
 alias y=yadm
 alias k=kubectl
 alias ic=istioctl
@@ -84,7 +86,7 @@ alias nbox="nerdctl run --network host -it --rm saltbo/netshoot"
 alias cc-goporject='cookiecutter https://github.com/saltbo/goproject'
 alias brewfileup="brew bundle dump --global -f"
 alias netstatnlp='netstat -na | grep LISTEN'
-alias web='python -m http.server'
+alias web='python3 -m http.server'
 alias nclk="nc -lk"
 
 # bindkey

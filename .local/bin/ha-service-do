@@ -7,8 +7,8 @@ domain=${entity_id%.*}
 service=$2
 
 source ~/.env
-export no_proxy=local
-curl "http://ha.local/api/services/${domain}/${service}" \
+export no_proxy=lan
+curl "http://omv.lan:8123/api/services/${domain}/${service}" \
   -H "Authorization: Bearer ${HA_TOKEN}" \
   -H "Content-Type: application/json" \
   -d '{"entity_id": "'"${entity_id}"'"}' > /dev/null 2>&1

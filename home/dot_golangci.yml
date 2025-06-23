@@ -1,0 +1,16 @@
+run:
+  timeout: 5m
+  concurrency: 4
+  issues-exit-code: 2
+  modules-download-mode: readonly
+
+linters:
+  disable:
+    - typecheck
+
+issues:
+  exclude-use-default: false
+  max-issues-per-linter: 0
+  max-same-issues: 0
+  exclude:
+    - composites

@@ -1,0 +1,22 @@
+
+
+# Type(<scope>): <subject>
+# <body>
+# <footer>
+
+# Type should be one of the following:
+# * feat (new feature)
+# * fix (bug fix)
+# * docs (changes to documentation)
+# * style (formatting, missing semi colons, etc; no code change)
+# * refactor (refactoring production code)
+# * perf (code change that improves performance)
+# * build (changes that affect the build system or external dependencies (example scopes: gulp, broccoli, npm)
+# * ci (changes to our CI configuration files and scripts (example scopes: Travis, Circle, BrowserStack, SauceLabs))
+# * test (adding missing tests, refactoring tests; no production code change)
+# * chore (updating grunt tasks etc; no production code change)
+# * revert (reverts a previous commit)
+# Scope is just the scope of the change. Something like (admin) or (teacher).
+# Subject should use impertivite tone and say what you did.
+# The body should go into detail about changes made.
+# The footer should contain any JIRA (or other tool) issue references or actions.

@@ -1,0 +1,15 @@
+#compdef git-cm
+
+_arguments -w -C -s \
+    '(--feat)--feat[new feature]' \
+    '(--fix)--fix[bug fix]' \
+    '(--docs)--docs[changes to documentation]' \
+    '(--style)--style[formatting, missing semi colons, etc; no code change]' \
+    '(--refactor)--refactor[refactoring production code]' \
+    '(--perf)--perf[code change that improves performance]' \
+    '(--build)--build[changes that affect the build system or external dependencies (example scopes: gulp, broccoli, npm)]' \
+    '(--ci)--ci[changes to our CI configuration files and scripts (example scopes: Travis, Circle, BrowserStack, SauceLabs)]' \
+    '(--test)--test[adding missing tests, refactoring tests; no production code change)]' \
+    '(--chore)--chore[updating grunt tasks etc; no production code change]' \
+    '(--revert)--revert[reverts a previous commit]'
+

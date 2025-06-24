@@ -1,0 +1,14 @@
+[default]
+region = ap-northeast-3
+output = json
+cli_pager = cat
+
+[profile bos]
+output = json 
+cli_pager = cat
+
+[profile faas]
+region = bj
+output = json
+cli_pager = cat
+[profile oss]

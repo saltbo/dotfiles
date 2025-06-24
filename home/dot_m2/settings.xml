@@ -1,0 +1,36 @@
+<settings xmlns="http://maven.apache.org/SETTINGS/1.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          xsi:schemaLocation="http://maven.apache.org/SETTINGS/1.0.0
+                          https://maven.apache.org/xsd/settings-1.0.0.xsd">
+    <localRepository/>
+    <interactiveMode/>
+    <usePluginRegistry/>
+    <offline/>
+    <pluginGroups/>
+    <servers/>
+    <mirrors>
+        <mirror>
+          <id>mirror</id>
+          <mirrorOf>central</mirrorOf>
+          <name>mirror</name>
+          <url>https://maven.aliyun.com/repository/public</url>
+        </mirror>
+    </mirrors>
+    <proxies/>
+    <profiles>
+        <profile>
+            <id>spring</id>
+            <repositories>
+                <repository>
+                    <id>spring</id>
+                    <url>https://maven.aliyun.com/repository/spring</url>
+                    <releases>
+                      <enabled>true</enabled>
+                    </releases>
+                    <snapshots>
+                      <enabled>true</enabled>
+                    </snapshots>
+                  </repository>
+            </repositories>
+        </profile>
+    </profiles>
+</settings>

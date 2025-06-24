@@ -19,6 +19,5 @@ autoload -Uz compinit
 compinit
 
 # PATH
-export PATH="/opt/soft/bin:$PATH"
 export PATH="$HOME/.krew/bin:$PATH"
 export PATH="$HOME/.local/bin:$PATH"

@@ -29,8 +29,8 @@ zplug load
 # golang
 export GOPATH="/opt/data/go"
 export GOPRIVATE="*.chehejia.com"
-export GOTOOLCHAIN=local
-export GOPROXY="https://goproxy.cn,https://mirrors.saltbo.fun/goproxy,direct"
+export GOPROXY="https://goproxy.cn,direct"
+export GOTOOLCHAIN="local"
 export PATH=$PATH:$GOPATH/bin
 # clang
 export CPATH=$HOMEBREW_PREFIX/include
@@ -44,7 +44,6 @@ export PATH=$PATH:$(gem env gemdir)/bin
 
 # tools
 # proxy
-PROXY_ADDR="http://proxy.internal:6666"
 export http_proxy=$PROXY_ADDR
 export https_proxy=$PROXY_ADDR
 export all_proxy=$PROXY_ADDR
@@ -91,6 +90,3 @@ alias nclk="nc -lk"
 # bindkey
 bindkey '^P' history-substring-search-up
 bindkey '^N' history-substring-search-down
-
-# Added by OrbStack: command-line tools and integration
-source ~/.orbstack/shell/init.zsh 2>/dev/null || :

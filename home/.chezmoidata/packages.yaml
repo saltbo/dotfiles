@@ -1,6 +1,7 @@
 packages:
   darwin:
     brews:
+      - age
       - awscli
       - bat
       - bitwarden-cli

@@ -1,6 +1,6 @@
 #!/bin/bash
 version=$1
-BINDIR=/opt/soft/bin
+BINDIR=~/.local/bin
 
 # download if not exist
 if [ ! -f "${BINDIR}/kubectl${version}" ]; then
@@ -18,4 +18,6 @@ if [ ! -f "${BINDIR}/kubectl${version}" ]; then
 fi
 
 ln -sf "${BINDIR}/kubectl${version}" "${BINDIR}/kubectl"
-${BINDIR}/kubectl completion zsh >/opt/soft/site-functions/_kubectl
+${BINDIR}/kubectl completion zsh >~/.local/share/zsh-completions/_kubectl
+echo "Switched kubectl to version ${version}"
+echo "Run 'kubectl version' to verify the switch"

@@ -1,21 +1,20 @@
 #!/bin/bash
 version=$1
-CMD=istioctl
-BINDIR=/opt/soft/bin
+BINDIR=~/.local/bin
 
 # download if not exist
-if [ ! -f "${BINDIR}/${CMD}${version}" ]; then
-    cd  /opt/soft && curl -L https://istio.io/downloadIstio | ISTIO_VERSION=${version} sh -
-    if [ -f "/opt/soft/istio-${version}/bin/${CMD}" ]; then
-        ln -s "/opt/soft/istio-${version}/bin/${CMD}" "${BINDIR}/${CMD}${version}"
+if [ ! -f "${BINDIR}/istioctl${version}" ]; then
+    cd ${BINDIR} && curl -L https://istio.io/downloadIstio | ISTIO_VERSION=${version} sh -
+    if [ -f "${BINDIR}/istioctl${version}" ]; then
+        chmod 755 "${BINDIR}/istioctl${version}"
     fi
 fi
 
 # switch the version
-if [ ! -f "${BINDIR}/${CMD}${version}" ]; then
-    echo "File \"${BINDIR}/${CMD}${version}\" not exists"
+if [ ! -f "${BINDIR}/istioctl${version}" ]; then
+    echo "File \"${BINDIR}/istioctl${version}\" not exists"
     exit 0
 fi
 
-ln -sf "${BINDIR}/${CMD}${version}" "${BINDIR}/${CMD}"
-${BINDIR}/${CMD} completion zsh >/opt/soft/site-functions/_${CMD}
+ln -sf "${BINDIR}/istioctl${version}" "${BINDIR}/istioctl"
+${BINDIR}/istioctl completion zsh >~/.local/share/zsh-completions/_istioctl

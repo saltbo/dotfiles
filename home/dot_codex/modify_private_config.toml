@@ -1,0 +1,28 @@
+{{- /* chezmoi:modify-template */ -}}
+{{- $current := .chezmoi.stdin | fromToml -}}
+{{- $preferences := `{
+  "model": "gpt-6-astra",
+  "model_reasoning_effort": "medium",
+  "personality": "pragmatic",
+  "service_tier": "default",
+  "approval_policy": "never",
+  "approvals_reviewer": "user",
+  "sandbox_mode": "danger-full-access",
+  "features": {
+    "goals": true,
+    "default_mode_request_user_input": true,
+    "js_repl": false,
+    "memories": false,
+    "chronicle": false
+  },
+  "memories": {
+    "generate_memories": false,
+    "use_memories": false
+  }
+}` | fromJson -}}
+{{- $updated := mergeOverwrite (deepCopy $current) $preferences -}}
+{{- if deepEqual $current $updated -}}
+{{ .chezmoi.stdin }}
+{{- else -}}
+{{ $updated | toToml }}
+{{- end -}}

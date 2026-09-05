@@ -1,0 +1,28 @@
+{{- /* chezmoi:modify-template */ -}}
+{{- $current := .chezmoi.stdin | default "{}" | fromJson -}}
+{{- $preferences := `{
+  "enabledPlugins": {
+    "gopls-lsp@claude-plugins-official": true
+  },
+  "effortLevel": "xhigh",
+  "voice": {
+    "enabled": true,
+    "mode": "hold"
+  },
+  "skipDangerousModePermissionPrompt": true,
+  "theme": "light",
+  "remoteControlAtStartup": false,
+  "agentPushNotifEnabled": true,
+  "voiceEnabled": true
+}` | fromJson -}}
+{{- $updated := mergeOverwrite (deepCopy $current) $preferences -}}
+{{- $rtk := dict "matcher" "Bash" "hooks" (list (dict "type" "command" "command" "rtk hook claude")) -}}
+{{- $hooks := dig "hooks" "PreToolUse" (list) $updated -}}
+{{- if not (has $rtk $hooks) -}}
+{{- $updated = setValueAtPath "hooks.PreToolUse" (append $hooks $rtk) $updated -}}
+{{- end -}}
+{{- if deepEqual $current $updated -}}
+{{ .chezmoi.stdin }}
+{{- else -}}
+{{ $updated | toPrettyJson }}
+{{- end -}}

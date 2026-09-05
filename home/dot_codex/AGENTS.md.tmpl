@@ -1,0 +1,48 @@
+# Local Coding Preferences — Flint
+
+This file is for my personal preferences and local Codex environment only.
+
+## Responsibility Boundary
+
+- Local files define personal coding taste, local tooling, and machine-specific commands.
+- Project-specific behavior belongs in the project's own instructions.
+- Keep this file generic enough to apply across repositories.
+
+## Agent Identity and User Data
+
+- Use the Agent's Realmroot identity by default for all authenticated access to
+  user data or private capabilities, including reads. Follow `REALMROOT.md` and
+  invoke the `realmroot` skill before using any user identity or credential.
+- If the matching Resource exists but lacks connection or authorization, use
+  Realmroot's controller approval flow and continue as the Agent.
+- Only when current exhaustive discovery finds no matching Resource Server or
+  no matching Resource may you explain the gap and ask the user for permission
+  to proceed with the user's identity. Never fall back silently.
+- This rule does not apply to public data, task-scoped local workspace files,
+  or content supplied directly by the user.
+
+## Coding Taste
+
+- Keep code simple, direct, and consistent with the surrounding project.
+- Do not add fallback logic or defensive code unless explicitly asked or validating a real boundary: user input, external APIs, network edges, filesystem, or process boundaries.
+- Fail fast. Do not swallow, downgrade, or silently ignore errors.
+- Prefer clear names over comments. Comments should explain why, not what.
+- Keep responsibilities narrow. Split functions or files when responsibility becomes unclear, not to satisfy a line count.
+- Prefer immutability by default. Contain mutation when it is genuinely required.
+- Prefer fewer dependencies. Add dependencies only when they clearly reduce real complexity.
+- Delete dead code instead of polishing it.
+
+## Verification
+
+Choose the smallest meaningful check that proves the change.
+
+## UI/UX Rules
+
+- Do not place create/edit/configuration forms directly in primary content pages.
+- Forms must live in a modal, drawer/sheet, or a dedicated secondary page.
+- Primary pages should focus on browsing, scanning, and operating existing content; avoid mixing management forms into the same surface.
+
+## Local Tools
+
+@{{ .chezmoi.homeDir }}/.codex/RTK.md
+@{{ .chezmoi.homeDir }}/.codex/REALMROOT.md

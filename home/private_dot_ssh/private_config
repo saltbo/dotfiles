@@ -7,10 +7,6 @@ Host github.com
     User git
     Port 443
 
-Host jms.chj.cloud
-  HostKeyAlgorithms +ssh-rsa
-  PubkeyAcceptedKeyTypes +ssh-rsa
-
 Host *
     ServerAliveInterval 60
     ServerAliveCountMax 3

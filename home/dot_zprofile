@@ -47,7 +47,7 @@ source "$HOME/.env"
 export http_proxy=$PROXY_ADDR
 export https_proxy=$PROXY_ADDR
 export all_proxy=$PROXY_ADDR
-export no_proxy="chehejia.com,chj.cloud,localtest.rs,localtest.me,localtest,localhost,lan,local,127.0.0.1"
+export no_proxy="localtest.rs,localtest.me,localtest,localhost,lan,local,127.0.0.1"
 # kubectl
 KCD="$HOME/.kube/conf.d"
 if [ -d "$KCD" ]; then

@@ -1,7 +1,7 @@
 #!/bin/bash
 # Author: Matt Mastracci (matthew@mastracci.com)
 # AppleScript from http://stackoverflow.com/questions/4309087/cancel-button-on-osascript-in-a-bash-script
-# licensed under cc-wiki with attribution required 
+# licensed under cc-wiki with attribution required
 # Remainder of script public domain
 
 osascript -e 'tell application "iTerm2" to version' > /dev/null 2>&1 && NAME=iTerm2 || NAME=iTerm
@@ -20,7 +20,7 @@ if [[ $FILE = "" ]]; then
     echo \# Cancelled transfer
 else
     cd "$FILE"
-    /usr/local/bin/rz --rename --escape --binary --bufsize 4096 
+    {{ if eq .chezmoi.arch "arm64" }}/opt/homebrew{{ else }}/usr/local{{ end }}/bin/rz --rename --escape --binary --bufsize 4096
     sleep 1
     echo
     echo

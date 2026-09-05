@@ -74,6 +74,7 @@ zstyle ':omz:update' frequency 13
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(git)
 
+fpath=("$HOME/.zsh/completions" $fpath)
 source $ZSH/oh-my-zsh.sh
 
 # User configuration
@@ -107,3 +108,15 @@ export SDKMAN_DIR="$HOME/.sdkman"
 [[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
 export VOLTA_HOME="$HOME/.volta"
 export PATH="$VOLTA_HOME/bin:$PATH"
+
+export PATH="$HOMEBREW_PREFIX/opt/ruby/bin:$PATH"
+
+export PNPM_HOME="$HOME/Library/pnpm"
+case ":$PATH:" in
+  *":$PNPM_HOME:"*) ;;
+  *) export PATH="$PNPM_HOME:$PATH" ;;
+esac
+
+if [[ -f "$HOME/.dart-cli-completion/zsh-config.zsh" ]]; then
+    source "$HOME/.dart-cli-completion/zsh-config.zsh"
+fi

@@ -79,6 +79,8 @@ packages:
       - maccy
       - iina
     mases:
+      - name: Bitwarden
+        id: 1352778147
       - name: Bob
         id: 1630034110
       - name: OpenCat

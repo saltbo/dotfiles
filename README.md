@@ -6,16 +6,10 @@ curl -sfL https://raw.githubusercontent.com/saltbo/dotfiles/master/install.sh | 
 
 ## Agent configuration
 
-Chezmoi manages personal Codex/Claude instructions, two Claude agents and selected
-settings. Home-directory references are rendered for the destination machine.
-Codex's model, reasoning, permission and memory preferences match the current
-setup, including `approval_policy = "never"` and `sandbox_mode = "danger-full-access"`.
-
-The `modify_` templates merge selected settings into existing config files. They
-preserve unrelated project records, MCP definitions, credentials and hooks.
-Claude's RTK hook is added once; RTK is included in the Homebrew package list.
-Existing config bytes are retained when managed values already match. When values
-change, JSON/TOML is reserialized, so comments and formatting may change.
+Chezmoi manages personal Codex/Claude instructions and two Claude agents.
+Home-directory references are rendered for the destination machine. RTK is
+included in the Homebrew package list for the imported instructions.
+Codex config.toml and Claude settings.json remain unmanaged.
 
 `agent-skills.json` records the 51 shared skills and available source metadata.
 Ten Flutter skills have no source in the local installer lock and are marked
@@ -32,5 +26,5 @@ chezmoi apply ~/.codex ~/.claude
 ```
 
 Logins, sessions, caches, databases, project permissions and plugin downloads are
-not collected. Close agents before applying settings. Realmroot enrollment and
+not collected. Realmroot enrollment and
 plugin/skill installation remain separate from restoring these dotfiles.

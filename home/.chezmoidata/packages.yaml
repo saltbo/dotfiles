@@ -48,6 +48,7 @@ packages:
       - pinentry-mac
       - pre-commit
       - procs
+      - rtk
       - sd
       - sleepwatcher
       - socat

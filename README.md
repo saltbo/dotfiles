@@ -20,7 +20,7 @@ curl -sfL https://raw.githubusercontent.com/saltbo/dotfiles/master/install.sh | 
 uv tool upgrade saltbo-bbox
 ```
 
-本地开发可在 bbox checkout 中执行 `uv tool install --editable .`。增加命令或变更依赖后重新安装。
+本地开发可在 bbox checkout 中执行 `uv tool install --editable .`。增加命令或变更依赖后重新安装。zsh 在 compinit 之后通过 `source <(bbox completion zsh)` 加载 bbox 自带补全，无需独立的 `completion-install`，也不再在 dotfiles 保存 `_git-cm` 副本。更新 bbox 后重新打开终端即可加载新版规则。
 
 旧安装迁移时，先备份 `~/.local/bin` 中原有个人命令，再移开与 bbox 同名的入口，然后安装 bbox。不要删除 uv 或其他应用的入口。旧 `pyscripts/.venv` 不再使用；确认迁移后可归档。自建 `kubectl` 版本保存在 `~/.local/share/bbox/kubectl/`，活动入口仍为 `~/.local/bin/kubectl`。
 

@@ -91,6 +91,11 @@ else
     compinit
 fi
 
+# bbox owns its completions; load after compinit and override any legacy entries.
+if (( $+commands[bbox] )); then
+    source <(bbox completion zsh)
+fi
+
 # User configuration
 
 # export MANPATH="/usr/local/man:$MANPATH"

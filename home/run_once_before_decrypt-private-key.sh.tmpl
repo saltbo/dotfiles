@@ -1,9 +1,7 @@
 #!/bin/sh
-set -eu
 
-identity="$HOME/.config/chezmoi/key.txt"
-if [ ! -f "$identity" ]; then
-    mkdir -p "$HOME/.config/chezmoi"
-    umask 077
-    chezmoi age decrypt --output "$identity" --passphrase "{{ .chezmoi.sourceDir }}/key.txt.age"
+if [ ! -f "/Users/saltbo/.config/chezmoi/key.txt" ]; then
+    mkdir -p "/Users/saltbo/.config/chezmoi"
+    chezmoi age decrypt --output "/Users/saltbo/.config/chezmoi/key.txt" --passphrase "{{ .chezmoi.sourceDir }}/key.txt.age"
+    chmod 600 "/Users/saltbo/.config/chezmoi/key.txt"
 fi

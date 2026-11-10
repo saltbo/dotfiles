@@ -37,14 +37,6 @@ uv tool upgrade saltbo-bbox
 
 补全初始化仅在交互 shell 执行。zplug 保留真实终端检测，避免 GUI 的登录 shell 环境探测超时。
 
-## 仓库边界
-
-保留可复用的配置、快捷键、包清单和环境初始化。命令实现由 bbox 管理；凭据使用 age 加密，`private_` 仅限制部署权限，并不加密 Git 内容。
-
-不收集 `.env`、明文私钥、登录会话、缓存、自动生成的补全、虚拟环境、公司连接档案、密码/OTP 自动输入脚本，以及 GPG `sshcontrol` 这类依赖本机密钥的状态。iTerm 仅保留通用配置和 Default profile；机器专属文件可在本地维护。Git、iTerm、Proxmark 的家目录通过 chezmoi 模板渲染。
-
-FRP 配置以 `encrypted_private_frpc.ini.age` 保存，恢复时部署为 `~/.config/frp/frpc.ini`。当前加密不会清除早期公开提交中的明文，历史凭据应另行轮换。
-
 ## Agent configuration
 
 Chezmoi manages personal Codex/Claude instructions and two Claude agents.

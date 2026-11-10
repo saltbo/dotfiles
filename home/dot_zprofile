@@ -1,54 +1,65 @@
-eval "$($HOMEBREW_PREFIX/bin/brew shellenv)"
+# macOS path_helper has run; apply the shared PATH priorities once more.
+[[ -r "$HOME/.config/shell/path.sh" ]] && source "$HOME/.config/shell/path.sh"
+if [[ -x "$HOMEBREW_PREFIX/bin/brew" ]]; then
+    eval "$("$HOMEBREW_PREFIX/bin/brew" shellenv)"
+    source "$HOME/.config/shell/path.sh"
+fi
 
 # zplug
-export ZPLUG_HOME=$HOMEBREW_PREFIX/opt/zplug
-source $ZPLUG_HOME/init.zsh
-zplug "plugins/encode64", from:oh-my-zsh
-zplug "plugins/gpg-agent", from:oh-my-zsh
-zplug "plugins/extract", from:oh-my-zsh
-zplug "plugins/direnv", from:oh-my-zsh
-zplug "plugins/history", from:oh-my-zsh
-zplug "plugins/direnv", from:oh-my-zsh
-#zplug "plugins/nvm", from:oh-my-zsh
-#zplug "plugins/pip", from:oh-my-zsh
-zplug "plugins/sudo", from:oh-my-zsh
-zplug "plugins/transfer", from:oh-my-zsh
-zplug "plugins/z", from:oh-my-zsh
-zplug "plugins/history-substring-search", from:oh-my-zsh
-zplug "zsh-users/zsh-autosuggestions", defer:2
-zplug "zsh-users/zsh-syntax-highlighting", defer:2
-zplug "NoahTheDuke/vim-just", defer:2
+#
+# 只在「真人交互终端」里加载。zplug load 要 ~5.7s，而很多 GUI app / 工具会用
+# `$SHELL -ilc 'printenv PATH'` 去探测登录 shell 环境，且普遍带 5s 左右的硬超时
+# （例如 T3 Code: apps/server/src/os-jank.ts 的 hydratePosixPath）。超时被 SIGKILL
+# 后 GUI app 只能拿到 launchd 的 /usr/bin:/bin:/usr/sbin:/sbin，于是 claude / codex /
+# pi 全部 "not found on PATH"。
+#
+# 这类探测的 stdin/stdout 是 /dev/null 或管道，`-t 0` 为假，因此跳过插件加载；
+# 真实终端里 stdin 是 pty，`-t 0` 为真，插件、补全、高亮照常工作。
+# PATH 由共享配置构造，插件只在真实交互终端加载。
+if [[ -o interactive ]] && [[ -t 0 ]]; then
+    export ZPLUG_HOME=$HOMEBREW_PREFIX/opt/zplug
+    source $ZPLUG_HOME/init.zsh
+    zplug "plugins/encode64", from:oh-my-zsh
+    zplug "plugins/gpg-agent", from:oh-my-zsh
+    zplug "plugins/extract", from:oh-my-zsh
+    zplug "plugins/direnv", from:oh-my-zsh
+    zplug "plugins/history", from:oh-my-zsh
+    zplug "plugins/direnv", from:oh-my-zsh
+    #zplug "plugins/nvm", from:oh-my-zsh
+    #zplug "plugins/pip", from:oh-my-zsh
+    zplug "plugins/sudo", from:oh-my-zsh
+    zplug "plugins/transfer", from:oh-my-zsh
+    zplug "plugins/z", from:oh-my-zsh
+    zplug "plugins/history-substring-search", from:oh-my-zsh
+    zplug "zsh-users/zsh-autosuggestions", defer:2
+    zplug "zsh-users/zsh-syntax-highlighting", defer:2
+    zplug "NoahTheDuke/vim-just", defer:2
 
-# Install plugins if there are plugins that have not been installed
-if ! zplug check --verbose; then
-    zplug install
+    # Install plugins if there are plugins that have not been installed
+    if ! zplug check --verbose; then
+        zplug install
+    fi
+    zplug load
 fi
-zplug load
 
 # langs
 # golang
 export CGO_ENABLED=0
 export GOPATH="/opt/data/go"
 export GOPRIVATE="*.chehejia.com"
-export GOPROXY="https://goproxy.cn,direct"
+#export GOPROXY="https://goproxy.cn,direct"
 export GOTOOLCHAIN="local"
-export PATH=$GOPATH/bin:$PATH
 # clang
 export CPATH=$HOMEBREW_PREFIX/include
 export LIBRARY_PATH=$HOMEBREW_PREFIX/lib
-# rust
-if [ -f "$HOME/.cargo/env" ]; then
-    source "$HOME/.cargo/env"
-fi
-# ruby
-export PATH=$PATH:$(gem env gemdir)/bin
 
 # tools
 # proxy
+[[ -r "$HOME/.env" ]] && source "$HOME/.env"
 export http_proxy=$PROXY_ADDR
 export https_proxy=$PROXY_ADDR
 export all_proxy=$PROXY_ADDR
-export no_proxy="chehejia.com,chj.cloud,localtest.rs,localtest.me,localtest,localhost,127.0.0.1"
+export no_proxy="chehejia.com,chj.cloud,localtest.rs,localtest.me,localtest,localhost,lan,local,127.0.0.1"
 # kubectl
 KCD="$HOME/.kube/conf.d"
 if [ -d "$KCD" ]; then
@@ -63,11 +74,10 @@ export GPG_TTY=$(tty)
 export NPM_CONFIG_OFFICIAL_REGISTRY_TOKEN=""
 # istio
 export HUB="docker.io/saltbo"
-export TAG=istio-testing
+#export TAG=istio-testing
 export ISTIO=$HOME/develop/oss/istio
 
 # alias for myself
-source $HOME/.env
 alias ls='lsd'
 alias sed=gsed
 #alias python=python3
@@ -87,7 +97,13 @@ alias brewfileup="brew bundle dump --global -f"
 alias netstatnlp='netstat -na | grep LISTEN'
 alias web='python3 -m http.server'
 alias nclk="nc -lk"
+alias gh-claude="ANTHROPIC_BASE_URL=http://localhost:4141 ANTHROPIC_AUTH_TOKEN=sk-dummy ANTHROPIC_MODEL=claude-opus-4.5 ANTHROPIC_DEFAULT_HAIKU_MODEL=gpt-5-mini claude"
 
 # bindkey
 bindkey '^P' history-substring-search-up
 bindkey '^N' history-substring-search-down
+
+# Added by OrbStack: command-line tools and integration
+# This won't be added again if you remove it.
+[[ -r "$HOME/.orbstack/shell/init.zsh" ]] && source "$HOME/.orbstack/shell/init.zsh"
+source "$HOME/.config/shell/path.sh"

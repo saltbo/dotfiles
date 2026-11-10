@@ -1,0 +1,55 @@
+#!/bin/sh
+set -eu
+
+# Legacy manifest: {{ include "dot_config/bbox/legacy-sha256" | sha256sum }}
+# Tool source is versioned separately from dotfiles.
+if ! command -v uv >/dev/null 2>&1; then
+    echo 'bbox installation requires uv (brew install uv).' >&2
+    exit 1
+fi
+
+# Preserve an existing installation, including a local editable checkout.
+if uv tool list | grep -q '^saltbo-bbox '; then
+    exit 0
+fi
+
+manifest="$HOME/.config/bbox/legacy-sha256"
+bin_dir=$(uv tool dir --bin)
+# Only migrate recognizable legacy scripts. Refuse unknown files before moving any.
+commands=$(awk '{print $2}' "$manifest" | sort -u)
+for name in $commands; do
+    file="$bin_dir/$name"
+    if [ -e "$file" ] || [ -L "$file" ]; then
+        if [ -L "$file" ] || [ ! -f "$file" ]; then
+            echo "Refusing to replace an unmanaged entry: $file" >&2
+            exit 1
+        fi
+        checksum=$(shasum -a 256 "$file" | awk '{print $1}')
+        if ! grep -Fqx "$checksum $name" "$manifest"; then
+            echo "Back up and move modified legacy script before installing bbox: $file" >&2
+            exit 1
+        fi
+    fi
+done
+
+backup=$(mktemp -d "${TMPDIR:-/tmp}/bbox-migration.XXXXXX")
+for name in $commands; do
+    file="$bin_dir/$name"
+    if [ -f "$file" ]; then mv "$file" "$backup/$name"; fi
+done
+
+# Requires Git read access to saltbo/bbox; authenticate before chezmoi apply.
+if uv tool install git+https://github.com/saltbo/bbox.git; then
+    echo "Legacy script backup: $backup"
+else
+    # Restore original commands if authentication or installation fails.
+    for file in "$backup"/*; do
+        [ -f "$file" ] || continue
+        name=${file##*/}
+        if [ ! -e "$bin_dir/$name" ] && [ ! -L "$bin_dir/$name" ]; then
+            mv "$file" "$bin_dir/$name"
+        fi
+    done
+    echo "bbox installation failed; original scripts restored (backup: $backup)." >&2
+    exit 1
+fi

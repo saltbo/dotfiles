@@ -1,6 +1,0 @@
-#!/bin/bash
-
-ctype=${1#"--"}; shift
-cmsg="$*"
-
-git commit -asm "$ctype: $cmsg"

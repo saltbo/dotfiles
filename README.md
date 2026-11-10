@@ -33,7 +33,9 @@ uv tool upgrade saltbo-bbox
 - `~/.zshrc`：加载交互补全和插件，最后统一 PATH。
 - `~/.profile`：POSIX 登录 shell 使用相同规则。
 
-优先级为用户 CLI 入口、pnpm、Homebrew Ruby、Volta、OpenClaw、Go、Homebrew、Cargo 和其他可用工具目录，然后保留应用继承的现有目录。自动去重、跳过空项和不存在的目录。用户入口优先的策略保留了 uv Python、原生 Claude 和手动选定 kubectl 的现有行为；更改默认来源应显式调整对应安装或入口。
+显式维护 `~/.local/bin`（uv/bbox）、`~/.volta/bin`、Homebrew（含 Ruby）、`$GOPATH/bin`、`~/.cargo/bin` 和 Docker CLI helper 目录。用户入口保留 uv Python、原生 Claude 和手动选定 kubectl 的优先级；Node/pnpm 统一经 Volta。其他应用继承的有效目录保留在后面，自动去重和跳过失效目录。
+
+移除 OpenClaw 专属入口、空的 pnpm 全局入口目录，以及链接已失效的 OrbStack 初始化。过滤这些从旧终端继承的路径；不加载旧 Flutter checkout，Flutter 使用 Homebrew 入口。工具本身未卸载。
 
 补全初始化仅在交互 shell 执行。zplug 保留真实终端检测，避免 GUI 的登录 shell 环境探测超时。
 

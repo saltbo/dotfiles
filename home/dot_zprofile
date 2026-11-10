@@ -1,9 +1,8 @@
 # macOS path_helper has run; apply the shared PATH priorities once more.
-[[ -r "$HOME/.config/shell/path.sh" ]] && source "$HOME/.config/shell/path.sh"
 if [[ -x "$HOMEBREW_PREFIX/bin/brew" ]]; then
     eval "$("$HOMEBREW_PREFIX/bin/brew" shellenv)"
-    source "$HOME/.config/shell/path.sh"
 fi
+source "$HOME/.config/shell/path.sh"
 
 # zplug
 #
@@ -97,8 +96,3 @@ alias gh-claude="ANTHROPIC_BASE_URL=http://localhost:4141 ANTHROPIC_AUTH_TOKEN=s
 # bindkey
 bindkey '^P' history-substring-search-up
 bindkey '^N' history-substring-search-down
-
-# Added by OrbStack: command-line tools and integration
-# This won't be added again if you remove it.
-[[ -r "$HOME/.orbstack/shell/init.zsh" ]] && source "$HOME/.orbstack/shell/init.zsh"
-source "$HOME/.config/shell/path.sh"

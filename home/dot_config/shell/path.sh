@@ -2,7 +2,6 @@
 # Existing directories inherited from applications are retained after these
 # explicit priorities. Missing and duplicate entries are omitted.
 export VOLTA_HOME="$HOME/.volta"
-export PNPM_HOME="$HOME/Library/pnpm"
 export GOPATH="${GOPATH:-/opt/data/go}"
 if [ "$(/usr/bin/uname -m)" = arm64 ]; then
     export HOMEBREW_PREFIX=/opt/homebrew
@@ -13,7 +12,11 @@ export HOMEBREW_NO_AUTO_UPDATE=1
 export HOMEBREW_NO_INSTALL_UPGRADE=1
 
 _saltbo_build_path() (
-    remaining="$HOME/.local/bin:$PNPM_HOME:$HOMEBREW_PREFIX/opt/ruby/bin:$VOLTA_HOME/bin:$HOME/.openclaw/bin:$GOPATH/bin:$HOMEBREW_PREFIX/bin:$HOMEBREW_PREFIX/sbin:$HOME/.cargo/bin:$HOME/.krew/bin:$HOME/.docker/bin:$HOME/.orbstack/bin:$HOME/Develop/oss/flutter/bin:${PATH:-/usr/bin:/bin:/usr/sbin:/sbin}"
+    # User tools (uv/bbox), Node tools (Volta), then Homebrew.
+    remaining="$HOME/.local/bin:$VOLTA_HOME/bin:$HOMEBREW_PREFIX/opt/ruby/bin:$HOMEBREW_PREFIX/bin:$HOMEBREW_PREFIX/sbin"
+    # Keep Go-installed tools, rustup and Docker CLI helpers available.
+    remaining="$remaining:$GOPATH/bin:$HOME/.cargo/bin:$HOME/.docker/bin"
+    remaining="$remaining:${PATH:-/usr/bin:/bin:/usr/sbin:/sbin}"
     result=
     while [ -n "$remaining" ]; do
         directory=${remaining%%:*}
@@ -22,6 +25,10 @@ _saltbo_build_path() (
             *) remaining= ;;
         esac
         [ -n "$directory" ] && [ -d "$directory" ] || continue
+        # Also drop retired installer entries inherited from an older terminal.
+        case "$directory" in
+            "$HOME/.openclaw/bin"|"$HOME/.orbstack/bin"|"$HOME/Library/pnpm") continue ;;
+        esac
         case ":$result:" in
             *":$directory:"*) continue ;;
         esac

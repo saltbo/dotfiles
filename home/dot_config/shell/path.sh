@@ -2,6 +2,7 @@
 # Existing directories inherited from applications are retained after these
 # explicit priorities. Missing and duplicate entries are omitted.
 export VOLTA_HOME="$HOME/.volta"
+export BUN_INSTALL="${BUN_INSTALL:-$HOME/.bun}"
 export GOPATH="${GOPATH:-/opt/data/go}"
 if [ "$(/usr/bin/uname -m)" = arm64 ]; then
     export HOMEBREW_PREFIX=/opt/homebrew
@@ -13,7 +14,7 @@ export HOMEBREW_NO_INSTALL_UPGRADE=1
 
 _saltbo_build_path() (
     # Language-managed commands take precedence; Homebrew is the fallback.
-    remaining="$HOME/.local/bin:$VOLTA_HOME/bin:$GOPATH/bin:$HOME/.cargo/bin"
+    remaining="$HOME/.local/bin:$VOLTA_HOME/bin:$BUN_INSTALL/bin:$GOPATH/bin:$HOME/.cargo/bin"
     remaining="$remaining:$HOMEBREW_PREFIX/opt/ruby/bin:$HOMEBREW_PREFIX/bin:$HOMEBREW_PREFIX/sbin:$HOME/.docker/bin"
     remaining="$remaining:${PATH:-/usr/bin:/bin:/usr/sbin:/sbin}"
     result=

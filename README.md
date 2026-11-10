@@ -8,7 +8,7 @@
 curl -sfL https://raw.githubusercontent.com/saltbo/dotfiles/master/install.sh | bash
 ```
 
-安装入口选择 `chezmoi` 分支。私有的个人工具仓库 `saltbo/bbox` 需要 GitHub Git 读取权限。
+安装入口选择 `chezmoi` 分支。个人工具从公开仓库 `saltbo/bbox` 安装，需要 uv 和 Git。
 
 ## 个人命令
 

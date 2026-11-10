@@ -38,7 +38,7 @@ for name in $commands; do
     if [ -f "$file" ]; then mv "$file" "$backup/$name"; fi
 done
 
-# Requires Git read access to saltbo/bbox; authenticate before chezmoi apply.
+# Install directly from the public source repository.
 if uv tool install git+https://github.com/saltbo/bbox.git; then
     echo "Legacy script backup: $backup"
 else

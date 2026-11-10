@@ -1125,7 +1125,7 @@
 			<key>Badge Right Margin</key>
 			<real>10</real>
 			<key>Badge Text</key>
-			<string>堡垒机</string>
+			<string>Bastion</string>
 			<key>Badge Top Margin</key>
 			<real>10</real>
 			<key>Blinking Cursor</key>
@@ -1804,7 +1804,7 @@
 			<false/>
 			<key>Tags</key>
 			<array>
-				<string>堡垒机</string>
+				<string>Bastion</string>
 			</array>
 			<key>Terminal Type</key>
 			<string>xterm-256color</string>

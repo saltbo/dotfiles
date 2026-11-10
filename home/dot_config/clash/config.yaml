@@ -1,10 +1,10 @@
 #---------------------------------------------------#
-## 配置文件需要放置在 $HOME/.config/clash/*.yaml
+## Place configuration files in $HOME/.config/clash/*.yaml.
 
-## 这份文件是clashX的基础配置文件，请尽量新建配置文件进行修改。
-## ！！！只有这份文件的端口设置会随ClashX启动生效
+## This is the base ClashX configuration. Use a separate file for custom rules.
+## Only the port settings in this file take effect when ClashX starts.
 
-## 如果您不知道如何操作，请参阅 官方Github文档 https://github.com/Dreamacro/clash/blob/dev/README.md
+## Documentation: https://github.com/Dreamacro/clash/blob/dev/README.md
 #---------------------------------------------------#
 
 # Port of HTTP(S) proxy server on the local end

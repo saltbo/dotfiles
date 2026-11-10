@@ -1,15 +1,14 @@
 # Interactive shell configuration. PATH policy lives in ~/.config/shell/path.sh.
 # Completion setup belongs here, so non-interactive shells avoid compinit.
 typeset -gU fpath
-for _saltbo_completion_dir in \
-    "$HOMEBREW_PREFIX/share/zsh/site-functions" \
-    "$HOMEBREW_PREFIX/share/zsh-completions" \
-    "$HOME/.local/share/zsh-completions" \
-    "$HOME/.zsh/completions" \
-    /opt/soft/site-functions; do
-    [[ -d "$_saltbo_completion_dir" ]] && fpath=("$_saltbo_completion_dir" $fpath)
-done
-unset _saltbo_completion_dir
+# (N/) includes only existing directories.
+fpath=(
+    "$HOME/.zsh/completions"(N/)
+    "$HOME/.local/share/zsh-completions"(N/)
+    "$HOMEBREW_PREFIX/share/zsh-completions"(N/)
+    "$HOMEBREW_PREFIX/share/zsh/site-functions"(N/)
+    $fpath
+)
 
 # Path to your oh-my-zsh installation.
 if [ -d "$HOME/.oh-my-zsh"  ]; then
@@ -91,7 +90,7 @@ else
     compinit
 fi
 
-# bbox owns its completions; load after compinit and override any legacy entries.
+# Load bbox completions after compinit.
 if (( $+commands[bbox] )); then
     source <(bbox completion zsh)
 fi

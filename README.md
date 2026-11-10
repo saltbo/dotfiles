@@ -14,7 +14,7 @@ curl -sfL https://raw.githubusercontent.com/saltbo/dotfiles/master/install.sh | 
 
 个人命令已经迁入独立仓库 <https://github.com/saltbo/bbox>，包名为 `saltbo-bbox`。chezmoi 不再管理 `~/.local/bin` 中的脚本源码、Python 虚拟环境或命令包装器。
 
-`run_onchange_after_install-bbox.sh.tmpl` 在尚未安装时通过 uv 安装工具集；已有安装（包括 editable 安装）会被保留。日常更新执行：
+`run_onchange_after_install-bbox.sh` 在尚未安装时通过 uv 安装工具集；已有安装（包括 editable 安装）会被保留。日常更新执行：
 
 ```sh
 uv tool upgrade saltbo-bbox
@@ -22,7 +22,7 @@ uv tool upgrade saltbo-bbox
 
 本地开发可在 bbox checkout 中执行 `uv tool install --editable .`。增加命令或变更依赖后重新安装。zsh 在 compinit 之后通过 `source <(bbox completion zsh)` 加载 bbox 自带补全，无需独立的 `completion-install`，也不再在 dotfiles 保存 `_git-cm` 副本。更新 bbox 后重新打开终端即可加载新版规则。
 
-旧安装迁移时，先备份 `~/.local/bin` 中原有个人命令，再移开与 bbox 同名的入口，然后安装 bbox。不要删除 uv 或其他应用的入口。旧 `pyscripts/.venv` 不再使用；确认迁移后可归档。自建 `kubectl` 版本保存在 `~/.local/share/bbox/kubectl/`，活动入口仍为 `~/.local/bin/kubectl`。
+安装钩子只安装工具，不移动或覆盖已有文件。其他旧机器如有同名脚本，需先备份并移开冲突入口，再执行安装。自建 `kubectl` 版本保存在 `~/.local/share/bbox/kubectl/`，活动入口仍为 `~/.local/bin/kubectl`。
 
 ## PATH
 

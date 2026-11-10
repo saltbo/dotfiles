@@ -1,0 +1,28 @@
+# Local Coding Preferences — Flint
+
+This file is for my personal preferences and local Claude environment only.
+
+## Responsibility Boundary
+
+- Local files define personal coding taste, local tooling, and machine-specific commands.
+- Project-specific behavior belongs in the project's own instructions.
+- Keep this file generic enough to apply across repositories.
+
+## Coding Taste
+
+- Keep code simple, direct, and consistent with the surrounding project.
+- Do not add fallback logic or defensive code unless explicitly asked or validating a real boundary: user input, external APIs, network edges, filesystem, or process boundaries.
+- Fail fast. Do not swallow, downgrade, or silently ignore errors.
+- Prefer clear names over comments. Comments should explain why, not what.
+- Keep responsibilities narrow. Split functions or files when responsibility becomes unclear, not to satisfy a line count.
+- Prefer immutability by default. Contain mutation when it is genuinely required.
+- Prefer fewer dependencies. Add dependencies only when they clearly reduce real complexity.
+- Delete dead code instead of polishing it.
+
+## Verification
+
+Choose the smallest meaningful check that proves the change.
+
+## Local Tools
+
+@{{ .chezmoi.homeDir }}/.codex/RTK.md

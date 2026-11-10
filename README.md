@@ -36,3 +36,21 @@ uv tool upgrade saltbo-bbox
 优先级为用户 CLI 入口、pnpm、Homebrew Ruby、Volta、OpenClaw、Go、Homebrew、Cargo 和其他可用工具目录，然后保留应用继承的现有目录。自动去重、跳过空项和不存在的目录。用户入口优先的策略保留了 uv Python、原生 Claude 和手动选定 kubectl 的现有行为；更改默认来源应显式调整对应安装或入口。
 
 补全初始化仅在交互 shell 执行。zplug 保留真实终端检测，避免 GUI 的登录 shell 环境探测超时。
+
+## Agent configuration
+
+Chezmoi manages personal Codex/Claude instructions and two Claude agents.
+Home-directory references are rendered for the destination machine. RTK is
+included in the Homebrew package list for the imported instructions.
+Codex config.toml and Claude settings.json remain unmanaged.
+
+Inspect and apply only these targets after installing the required tools:
+
+```sh
+chezmoi diff ~/.codex ~/.claude
+chezmoi apply ~/.codex ~/.claude
+```
+
+Logins, sessions, caches, databases, project permissions and plugin downloads are
+not collected. Realmroot enrollment and
+plugin/skill installation remain separate from restoring these dotfiles.

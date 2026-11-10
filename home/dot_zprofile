@@ -1,28 +1,36 @@
-eval "$($HOMEBREW_PREFIX/bin/brew shellenv)"
-
-# zplug
-export ZPLUG_HOME=$HOMEBREW_PREFIX/opt/zplug
-source $ZPLUG_HOME/init.zsh
-zplug "plugins/encode64", from:oh-my-zsh
-zplug "plugins/gpg-agent", from:oh-my-zsh
-zplug "plugins/extract", from:oh-my-zsh
-zplug "plugins/history", from:oh-my-zsh
-zplug "plugins/direnv", from:oh-my-zsh
-#zplug "plugins/nvm", from:oh-my-zsh
-#zplug "plugins/pip", from:oh-my-zsh
-zplug "plugins/sudo", from:oh-my-zsh
-zplug "plugins/transfer", from:oh-my-zsh
-zplug "plugins/z", from:oh-my-zsh
-zplug "plugins/history-substring-search", from:oh-my-zsh
-zplug "zsh-users/zsh-autosuggestions", defer:2
-zplug "zsh-users/zsh-syntax-highlighting", defer:2
-zplug "NoahTheDuke/vim-just", defer:2
-
-# Install plugins if there are plugins that have not been installed
-if ! zplug check --verbose; then
-    zplug install
+# macOS path_helper has run; apply the shared PATH priorities once more.
+if [[ -x "$HOMEBREW_PREFIX/bin/brew" ]]; then
+    eval "$("$HOMEBREW_PREFIX/bin/brew" shellenv)"
 fi
-zplug load
+source "$HOME/.config/shell/path.sh"
+
+# Load zplug only in interactive terminals. GUI applications may probe the
+# login shell with a short timeout; plugin loading can exceed that budget.
+# PATH setup is independent of plugins.
+if [[ -o interactive ]] && [[ -t 0 ]]; then
+    export ZPLUG_HOME=$HOMEBREW_PREFIX/opt/zplug
+    source $ZPLUG_HOME/init.zsh
+    zplug "plugins/encode64", from:oh-my-zsh
+    zplug "plugins/gpg-agent", from:oh-my-zsh
+    zplug "plugins/extract", from:oh-my-zsh
+    zplug "plugins/history", from:oh-my-zsh
+    zplug "plugins/direnv", from:oh-my-zsh
+    #zplug "plugins/nvm", from:oh-my-zsh
+    #zplug "plugins/pip", from:oh-my-zsh
+    zplug "plugins/sudo", from:oh-my-zsh
+    zplug "plugins/transfer", from:oh-my-zsh
+    zplug "plugins/z", from:oh-my-zsh
+    zplug "plugins/history-substring-search", from:oh-my-zsh
+    zplug "zsh-users/zsh-autosuggestions", defer:2
+    zplug "zsh-users/zsh-syntax-highlighting", defer:2
+    zplug "NoahTheDuke/vim-just", defer:2
+
+    # Install plugins if there are plugins that have not been installed
+    if ! zplug check --verbose; then
+        zplug install
+    fi
+    zplug load
+fi
 
 # langs
 # golang
@@ -30,20 +38,13 @@ export CGO_ENABLED=0
 export GOPATH="/opt/data/go"
 export GOPRIVATE="*.chehejia.com"
 export GOTOOLCHAIN="local"
-export PATH=$GOPATH/bin:$PATH
 # clang
 export CPATH=$HOMEBREW_PREFIX/include
 export LIBRARY_PATH=$HOMEBREW_PREFIX/lib
-# rust
-if [ -f "$HOME/.cargo/env" ]; then
-    source "$HOME/.cargo/env"
-fi
-# ruby
-export PATH=$PATH:$(gem env gemdir)/bin
 
 # tools
 # proxy
-source "$HOME/.env"
+[[ -r "$HOME/.env" ]] && source "$HOME/.env"
 export http_proxy=$PROXY_ADDR
 export https_proxy=$PROXY_ADDR
 export all_proxy=$PROXY_ADDR
@@ -82,13 +83,8 @@ alias brewfileup="brew bundle dump --global -f"
 alias netstatnlp='netstat -na | grep LISTEN'
 alias web='python3 -m http.server'
 alias nclk="nc -lk"
+alias gh-claude="ANTHROPIC_BASE_URL=http://localhost:4141 ANTHROPIC_AUTH_TOKEN=sk-dummy ANTHROPIC_MODEL=claude-opus-4.5 ANTHROPIC_DEFAULT_HAIKU_MODEL=gpt-5-mini claude"
 
 # bindkey
 bindkey '^P' history-substring-search-up
 bindkey '^N' history-substring-search-down
-
-export PATH="$HOME/.docker/bin:$PATH"
-
-if [[ -f "$HOME/.orbstack/shell/init.zsh" ]]; then
-    source "$HOME/.orbstack/shell/init.zsh"
-fi

@@ -1,0 +1,4 @@
+# POSIX login shells share the same PATH policy as zsh.
+if [ -r "$HOME/.config/shell/path.sh" ]; then
+    . "$HOME/.config/shell/path.sh"
+fi

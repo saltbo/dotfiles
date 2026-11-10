@@ -1,5 +1,14 @@
-# If you come from bash you might have to change your $PATH.
-# export PATH=$HOME/bin:/usr/local/bin:$PATH
+# Interactive shell configuration. PATH policy lives in ~/.config/shell/path.sh.
+# Completion setup belongs here, so non-interactive shells avoid compinit.
+typeset -gU fpath
+# (N/) includes only existing directories.
+fpath=(
+    "$HOME/.zsh/completions"(N/)
+    "$HOME/.local/share/zsh-completions"(N/)
+    "$HOMEBREW_PREFIX/share/zsh-completions"(N/)
+    "$HOMEBREW_PREFIX/share/zsh/site-functions"(N/)
+    $fpath
+)
 
 # Path to your oh-my-zsh installation.
 if [ -d "$HOME/.oh-my-zsh"  ]; then
@@ -74,8 +83,17 @@ zstyle ':omz:update' frequency 13
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(git)
 
-fpath=("$HOME/.zsh/completions" $fpath)
-source $ZSH/oh-my-zsh.sh
+if [[ -r "$ZSH/oh-my-zsh.sh" ]]; then
+    source "$ZSH/oh-my-zsh.sh"
+else
+    autoload -Uz compinit
+    compinit
+fi
+
+# Load bbox completions after compinit.
+if (( $+commands[bbox] )); then
+    source <(bbox completion zsh)
+fi
 
 # User configuration
 
@@ -103,20 +121,13 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
-#THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
 export SDKMAN_DIR="$HOME/.sdkman"
-[[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
-export VOLTA_HOME="$HOME/.volta"
-export PATH="$VOLTA_HOME/bin:$PATH"
+[[ -s "$SDKMAN_DIR/bin/sdkman-init.sh" ]] && source "$SDKMAN_DIR/bin/sdkman-init.sh"
 
-export PATH="$HOMEBREW_PREFIX/opt/ruby/bin:$PATH"
+## [Completion]
+## Completion scripts setup. Remove the following line to uninstall
+[[ -f "$HOME/.dart-cli-completion/zsh-config.zsh" ]] && source "$HOME/.dart-cli-completion/zsh-config.zsh"
+## [/Completion]
 
-export PNPM_HOME="$HOME/Library/pnpm"
-case ":$PATH:" in
-  *":$PNPM_HOME:"*) ;;
-  *) export PATH="$PNPM_HOME:$PATH" ;;
-esac
-
-if [[ -f "$HOME/.dart-cli-completion/zsh-config.zsh" ]]; then
-    source "$HOME/.dart-cli-completion/zsh-config.zsh"
-fi
+# Reapply priorities and deduplicate additions made by interactive integrations.
+source "$HOME/.config/shell/path.sh"

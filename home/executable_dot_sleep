@@ -1,4 +1,4 @@
 #!/bin/bash
 
-export PATH="$HOME/.local/bin:$PATH"
+. "$HOME/.config/shell/path.sh"
 ha-service-do light.gong_zuo_deng turn_off

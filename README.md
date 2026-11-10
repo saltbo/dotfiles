@@ -5,7 +5,7 @@ Personal configuration managed with [chezmoi](https://www.chezmoi.io/). Source f
 ## Installation
 
 ```sh
-curl -sfL https://raw.githubusercontent.com/saltbo/dotfiles/chezmoi/install.sh | bash
+curl -sfL https://raw.githubusercontent.com/saltbo/dotfiles/main/install.sh | bash
 ```
 
 ## Update configuration

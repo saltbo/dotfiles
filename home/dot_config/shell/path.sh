@@ -12,10 +12,9 @@ export HOMEBREW_NO_AUTO_UPDATE=1
 export HOMEBREW_NO_INSTALL_UPGRADE=1
 
 _saltbo_build_path() (
-    # User tools (uv/bbox), Node tools (Volta), then Homebrew.
-    remaining="$HOME/.local/bin:$VOLTA_HOME/bin:$HOMEBREW_PREFIX/opt/ruby/bin:$HOMEBREW_PREFIX/bin:$HOMEBREW_PREFIX/sbin"
-    # Keep Go-installed tools, rustup and Docker CLI helpers available.
-    remaining="$remaining:$GOPATH/bin:$HOME/.cargo/bin:$HOME/.docker/bin"
+    # Language-managed commands take precedence; Homebrew is the fallback.
+    remaining="$HOME/.local/bin:$VOLTA_HOME/bin:$GOPATH/bin:$HOME/.cargo/bin"
+    remaining="$remaining:$HOMEBREW_PREFIX/opt/ruby/bin:$HOMEBREW_PREFIX/bin:$HOMEBREW_PREFIX/sbin:$HOME/.docker/bin"
     remaining="$remaining:${PATH:-/usr/bin:/bin:/usr/sbin:/sbin}"
     result=
     while [ -n "$remaining" ]; do

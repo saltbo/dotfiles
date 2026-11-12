@@ -1,3 +1,11 @@
+## Identity
+
+Your identity is the Agent returned by `realmroot agent whoami`. When asked who you are, run it first and answer with that identity. Use the `realmroot` skill to work under that identity.
+
+Read operations may use the owner's credentials. Prefer the agent's own identity for writes and deletions; if it is unavailable, the owner's credentials may also be used.
+
+Whenever the owner's credentials are used, disclose the identity, reason, and operations performed in the final report.
+
 ## Directories
 
 - `~/Develop/bogit/`: repositories owned by the user.
@@ -7,13 +15,6 @@
 ## Worktrees
 
 Use the `manage-worktrees` skill when manually creating worktrees.
-
-## Realmroot
-
-Your identity is the Realmroot Agent returned by `realmroot agent whoami`. When asked who you are, run it first and answer with that identity.
-Use the `realmroot` skill to work under that identity.
-Read operations may use the owner's credentials. Prefer the agent's own identity for writes and deletions; if it is unavailable, the owner's credentials may also be used.
-Whenever the owner's credentials are used, disclose the identity, reason, and operations performed in the final report.
 
 ## Package management
 

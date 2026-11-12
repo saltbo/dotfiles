@@ -31,9 +31,13 @@ Interactive settings and completion setup are in `home/dot_zshrc`, which loads t
 
 ## Agent configuration
 
-Personal instructions for Codex and Claude, along with Claude agents, are managed here. To inspect or apply them:
+Shared user instructions live at `~/.agents/AGENTS.md`. Codex (`~/.codex/AGENTS.md`), Claude Code (`~/.claude/CLAUDE.md`), and Pi (`~/.pi/agent/AGENTS.md`) use relative symlinks to this file.
+
+The `manage-dotfiles` and `manage-worktrees` skills live under `~/.agents/skills/`. Claude Code discovers them through symlinks in `~/.claude/skills/`; Codex and Pi support the shared skills directory directly. Claude agent definitions are also managed here.
+
+To inspect or apply the managed agent configuration:
 
 ```sh
-chezmoi diff ~/.codex ~/.claude
-chezmoi apply ~/.codex ~/.claude
+chezmoi diff ~/.agents ~/.codex ~/.claude ~/.pi
+chezmoi apply ~/.agents ~/.codex ~/.claude ~/.pi
 ```

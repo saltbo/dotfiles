@@ -11,6 +11,12 @@
 
 用户级 dotfiles 由 chezmoi 管理。修改个人配置或全局 Agent 指令时，使用 `manage-dotfiles` skill。
 
+## Realmroot
+
+服务接入与 Agent 身份管理使用 `realmroot` skill。
+读操作可以使用主人权限。写入和删除操作优先使用 Agent 自己的身份；无法使用时，也可以使用主人权限。
+使用主人权限时，在最终汇报中说明所用身份、原因和执行的操作。
+
 ## Worktree
 
 手动创建和清理 worktree 时，使用 `manage-worktrees` skill。

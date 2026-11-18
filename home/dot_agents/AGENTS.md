@@ -20,6 +20,10 @@ Use the `manage-worktrees` skill when manually creating worktrees.
 
 Prefer Homebrew for command-line tools. Use uv for the Python ecosystem and Volta for the Node.js ecosystem.
 
+## Shell
+
+`sed` is an alias for GNU sed (`gsed`), not the macOS one.
+
 ## Command output
 
 RTK compresses output for integrated commands; run commands normally. If output is truncated, follow its recovery instructions to read the full result. If output is unusable, rerun with `rtk bypass <command>`.

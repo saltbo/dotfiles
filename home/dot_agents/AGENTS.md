@@ -6,6 +6,10 @@ Read operations may use the owner's credentials. Prefer the agent's own identity
 
 Whenever the owner's credentials are used, disclose the identity, reason, and operations performed in the final report.
 
+## Test account
+
+A shared Realmroot account for agents to sign in to apps under test is in `~/.config/realmroot/agent-tester.env`. Use it for sign-in checks instead of creating an account. For browser checks, use `ego-browser` and create the task space with the profile named `Agent Tester` (look its id up with `profiles()`); that account is already signed in to Realmroot there, so clicking an app's sign-in is enough. Never print or commit its password. Create a separate account only when a test needs a specific identity, such as a paid plan or an admin role.
+
 ## Directories
 
 - `~/Develop/bogit/`: repositories owned by the user.

@@ -53,8 +53,8 @@ packages:
       - sleepwatcher
       - socat
       - telnet
-      - terraform
-      - tldr
+      - hashicorp/tap/terraform
+      - tlrc
       - tmux
       - tree
       - uv
@@ -85,10 +85,9 @@ packages:
         id: 1352778147
       - name: Bob
         id: 1630034110
-      - name: OpenCat
-        id: 6445999201
-      - name: RunCat
-        id: 1435956242
+      - name: RunCat Neo
+        id: 6757801838
+        minMacOS: 26
       - name: Sequel Ace
         id: 1518036000
       - name: The Unarchiver

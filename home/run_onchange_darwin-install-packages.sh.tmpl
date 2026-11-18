@@ -2,6 +2,14 @@
 {{ $macos := output "sw_vers" "-productVersion" | trim | splitList "." | first | atoi -}}
 #!/bin/bash
 
+# Homebrew refuses to load formulae from a tap that has not been trusted.
+{{ range .packages.darwin.brews -}}
+{{ $parts := splitList "/" . -}}
+{{ if eq (len $parts) 3 -}}
+brew trust --tap {{ printf "%s/%s" (index $parts 0) (index $parts 1) | quote }}
+{{ end -}}
+{{ end -}}
+
 brew bundle --file=/dev/stdin <<EOF
 {{ range .packages.darwin.brews -}}
 brew {{ . | quote }}

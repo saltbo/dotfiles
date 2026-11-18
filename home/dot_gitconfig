@@ -20,8 +20,6 @@
 	template = /Users/saltbo/.stCommitMsg
 [user]
     signingkey = 6712AEC7C30D3B8DCED2A9EBA6D9859C3FE0DCBE
-	name = 
-	email = 
 
 [alias]
 	st = status

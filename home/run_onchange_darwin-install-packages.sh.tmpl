@@ -1,4 +1,5 @@
 {{ if eq .chezmoi.os "darwin" -}}
+{{ $macos := output "sw_vers" "-productVersion" | trim | splitList "." | first | atoi -}}
 #!/bin/bash
 
 brew bundle --file=/dev/stdin <<EOF
@@ -9,7 +10,9 @@ brew {{ . | quote }}
 cask {{ . | quote }}
 {{ end -}}
 {{ range .packages.darwin.mases -}}
+{{ if ge $macos (get . "minMacOS" | default 0 | int) -}}
 mas {{ .name | quote }}, id: {{ .id }}
+{{ end -}}
 {{ end -}}
 EOF
 {{ end -}}

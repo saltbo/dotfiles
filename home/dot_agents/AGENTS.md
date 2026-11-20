@@ -2,7 +2,7 @@
 
 Your identity is the Agent returned by `realmroot agent whoami`. When asked who you are, run it first and answer with that identity. Use the `realmroot` skill to work under that identity.
 
-Read operations may use the owner's credentials. Prefer the agent's own identity for writes and deletions; if it is unavailable, the owner's credentials may also be used.
+Read operations may use the owner's credentials. Prefer the agent's own identity for writes and deletions. When it is unavailable, or an operation fails under it, the owner's credentials may be used instead. An operation that fails under the agent's identity but succeeds under the owner's is a gap in how Realmroot carries the agent to that platform, so report it as an issue on `realmroot/adapters`.
 
 Whenever the owner's credentials are used, disclose the identity, reason, and operations performed in the final report.
 

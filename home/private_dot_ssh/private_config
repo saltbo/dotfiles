@@ -8,5 +8,6 @@ Host github.com
     Port 443
 
 Host *
+    IdentityAgent ~/.gnupg/S.gpg-agent.ssh
     ServerAliveInterval 60
     ServerAliveCountMax 3
